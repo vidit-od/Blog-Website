@@ -1,0 +1,128 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+.image{
+    position: fixed;
+    width: 100%;
+    height: 130%;
+    object-fit: cover;
+    z-index: -1;
+
+}
+.menu{
+    color: white;
+    position: fixed;
+}
+
+.intro{
+    color: white;
+    width: 100%;
+    height: 130%;
+    background-color: rgba(0,0,0,0.6);
+    text-align: center;
+}
+.intro h1,p{
+    position: relative;
+    top: 45%;
+    left:5%;
+    width: 60%;
+    text-align: left;
+    font-weight: 700;
+
+}
+.btn{
+    position: relative;
+    display: flex;
+    top:50%;
+    left: 5%;
+    max-width: 40%;
+    flex-wrap: wrap;
+}
+.btn1:hover, .btn2:hover{
+    background-color: white;
+    color: #39b54a;
+    transition: 0.5s;
+}
+.btn1, .btn2{
+    background-color: transparent;
+    color: white;
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+}
+.intro p{
+    transform: translateY(-80%);
+    color: grey;
+}
+.description{
+    position: absolute;
+    top:120%;
+    width: 100%;
+    height: 130%;
+    background-color: #39b54a;
+}
+.hit_blogs{
+    position: absolute;
+    top:250%;
+    width: 100%;
+    height: 300%;
+    background-color: white;
+}
+@media only screen and (min-width:500px){
+    .intro h1,p{
+        font-size: 2.5em;
+        top: 30%;
+    }
+    .intro p{
+        font-size: 1em;
+    }
+    .btn{
+        top:40%;
+        display:flex;
+        flex-wrap: nowrap;
+    }
+    .btn1, .btn2{
+        width: 200px;
+    }
+}
+@media only screen and (min-width:580px){
+    .intro h1,p{
+        font-size: 2.5em;
+        top: 38%;
+    }
+    .intro p{
+        font-size: 1em;
+    }
+    .btn{
+        top:40%;
+        display:flex;
+        flex-wrap: nowrap;
+    }
+    .btn1, .btn2{
+        width: 200px;
+    }
+}
+@media only screen and (min-width:820px){
+    .intro h1,p{
+        width: 482px;
+        font-size: 2.5em;
+        top: 50%;
+    }
+    .intro p{
+        font-size: 1em;
+    }
+    .btn{
+        top:50%;
+        display:flex;
+        flex-wrap: nowrap;
+    }
+    .btn1, .btn2{
+        width: 200px;
+    }
+}
