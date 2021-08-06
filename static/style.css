@@ -15,114 +15,145 @@ html{
     z-index: -1;
 
 }
-.menu{
-    color: white;
-    position: fixed;
-}
-
-.intro{
-    color: white;
-    width: 100%;
-    height: 130%;
-    background-color: rgba(0,0,0,0.6);
-    text-align: center;
-}
-.intro h1,p{
-    position: relative;
-    top: 45%;
-    left:5%;
-    width: 60%;
-    text-align: left;
-    font-weight: 700;
-
-}
-.btn{
-    position: relative;
+.navigation{
     display: flex;
-    top:50%;
-    left: 5%;
-    max-width: 40%;
-    flex-wrap: wrap;
-}
-.btn1:hover, .btn2:hover{
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    color: black;
     background-color: white;
+    z-index: 3;
+    height: 7%;
+    padding-left: 10px;
+}
+.navigation p{
+    font-size: 30px;
+}
+.navigation button{
+    background-color: transparent;
+    width: 100px;
+    height: 80%;
+    border-radius:20px ;
+    transform: translateY(10%);
+}
+.navigation button:hover{
+    background-color: black;
     color: #39b54a;
+    transition:0.5s;
+}
+.movement{
+    position: fixed;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    width: 30px;
+    bottom: 2%;
+    right: 1%;
+}
+.movement button{
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    color: #39b54a;
+    background-color: white;
+    border: none;
+}
+.top button:hover{
+    background-color: #39b54a;
+    color: black;
     transition: 0.5s;
 }
-.btn1, .btn2{
-    background-color: transparent;
+.intro{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.intro .welcome{
+    position: absolute;
+    bottom: 0%;
     color: white;
-    width: 200px;
-    padding: 10px;
-    margin: 10px;
+    max-width: 400px;
+    padding-left: 10px;
+    padding-bottom: 20px;
 }
 .intro p{
-    transform: translateY(-80%);
     color: grey;
 }
-.description{
-    position: absolute;
-    top:120%;
-    width: 100%;
-    height: 130%;
+.btn button{
+    width: 150px;
+    height: 30px;
+    margin: 5px;
+    border: none;
+
+    border-radius: 5px;
+    transition: 0.5s;
+}
+.btn button:hover{
     background-color: #39b54a;
+    color: white;
+}
+.logo{
+    position: absolute;
+    color: white;
+    background-color: black;
 }
 .hit_blogs{
     position: absolute;
-    top:250%;
+    top:110%;
     width: 100%;
-    height: 300%;
-    background-color: white;
+    min-height: 100%;
+    padding: 10px;
+    padding-top: 20px;
+    background-color: #39b54a;
 }
-@media only screen and (min-width:500px){
-    .intro h1,p{
-        font-size: 2.5em;
-        top: 30%;
-    }
-    .intro p{
-        font-size: 1em;
-    }
-    .btn{
-        top:40%;
-        display:flex;
-        flex-wrap: nowrap;
-    }
-    .btn1, .btn2{
-        width: 200px;
-    }
+.hit_blogs p{
+    font-size: 20px;
 }
-@media only screen and (min-width:580px){
-    .intro h1,p{
-        font-size: 2.5em;
-        top: 38%;
-    }
-    .intro p{
-        font-size: 1em;
-    }
-    .btn{
-        top:40%;
-        display:flex;
-        flex-wrap: nowrap;
-    }
-    .btn1, .btn2{
-        width: 200px;
-    }
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-@media only screen and (min-width:820px){
-    .intro h1,p{
-        width: 482px;
-        font-size: 2.5em;
-        top: 50%;
+.blog{
+    width: 170px;
+    height: 300px;
+    margin: 10px;
+    padding-top: 10PX;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    overflow: hidden;
+}
+.blog .title{
+    background-color: rgb(83, 58, 226);
+    color:black;
+    padding-left: 5px;
+}
+.blog .info{
+    margin-top: 20px;
+    padding-left: 5px;
+    font-weight: 10;
+    font-size: 12px;
+}
+.read_more{
+    text-align: center;
+    bottom: 0%;
+}
+.read_more button{
+    width: 400px;
+    height: 30px;
+    border-radius: 20px;
+    border:none
+}
+.read_more button:hover{
+    background-color: black;
+    color: #39b54a;
+    transition: 0.5s;
+}
+@media screen and (min-width: 1000px){
+    .blog{
+        width: 240px;
+
     }
-    .intro p{
-        font-size: 1em;
-    }
-    .btn{
-        top:50%;
-        display:flex;
-        flex-wrap: nowrap;
-    }
-    .btn1, .btn2{
-        width: 200px;
-    }
+    
 }
