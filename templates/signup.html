@@ -1,26 +1,45 @@
-<h1>Create Your Blogging Account Now</h1>
-<p>Read Unlimited Blogs By Creating An Account </p>
+{% load static%}
+<link rel="stylesheet" href="{% static 'style_signup.css' %}">
 
-<div class="signup">
-    <form method="POST" action="">
-        <div class="username">
-            Username:
-            <input type="text" name="username" id="">
-        </div>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
-        <div class="Email">
-            Email:
-            <input type="email" name="email" id="">
-        </div>
+<body>
+    <div class="signup">
+        <h1>Create Your Blogging Account</h1>
+        <p>Read Unlimited Blogs By Creating An Account </p>
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="txt_field">
+                <input type="text" name="username" id="">
+                <span></span>
+                <label> Username:</label>
+            </div>
 
-        <div class="Password">
-            Password:
-            <input type="password" name="password" id="">
-        </div>
+            <div class="txt_field">
+                <input type="email" name="email" id="">
+                <span></span>
+                <label> Email:</label>
+            </div>
 
-        <div class="Re_Password">
-            Confirm Password:
-            <input type="password" name="re_password" id="">
-        </div>
-    </form>
-</div>
+            <div class="txt_field">
+                <input type="password" name="password" id="">
+                <span></span>
+                <label> Password:</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="password" name="re_password" id="">
+                <span></span>
+                <label> Confirm Password:</label>
+            </div>
+            <div class="button">
+                <input type="submit" value="Submit">
+            </div>
+            <div class="login">
+                <label> Already have an account ?<a href="{% url 'login' %}">Login</a></label>
+            </div>
+        </form>
+    </div>
+</body>

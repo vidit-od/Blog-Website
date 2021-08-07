@@ -1,1 +1,36 @@
-<h1>hello to login page</h1>
+{% load static%}
+<link rel="stylesheet" href="{% static 'style_login.css' %}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+<body>
+    <div class="login">
+        <h1>Login</h1>
+        <p>Enter the World Full of Blogs </p>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="txt_field">
+                <input type="text" name="username" id="">
+                <span></span>
+                <label> Username:</label>
+            </div>
+
+            <div class="txt_field">
+                <input type="password" name="password" id="">
+                <span></span>
+                <label> Password:</label>
+            </div>
+
+            <div class="button">
+                <input type="submit" value="Submit">
+            </div>
+
+            <div class="signup">
+                <label> Do not have an Account ?<a href="{% url 'signup' %}">Signup</a></label>
+            </div>
+        </form>
+    </div>
+</body>
