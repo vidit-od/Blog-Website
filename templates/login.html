@@ -12,6 +12,9 @@
 
         <form method="POST" action="">
             {% csrf_token %}
+            {% for message in messages %}
+                <h5>{{message}}</h5>
+            {% endfor %}
             <div class="txt_field">
                 <input type="text" name="username" id="">
                 <span></span>
@@ -19,13 +22,13 @@
             </div>
 
             <div class="txt_field">
-                <input type="password" name="password" id="">
+                <input type="password" name="password" id="" required>
                 <span></span>
                 <label> Password:</label>
             </div>
 
             <div class="button">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" required>
             </div>
 
             <div class="signup">

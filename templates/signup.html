@@ -9,28 +9,33 @@
     <div class="signup">
         <h1>Create Your Blogging Account</h1>
         <p>Read Unlimited Blogs By Creating An Account </p>
-        <form method="POST" action="">
+    
+        <form method="POST">
             {% csrf_token %}
+    
+            {% for message in messages %}
+            <h5>{{message}}</h5>
+        {% endfor %}
             <div class="txt_field">
-                <input type="text" name="username" id="">
+                <input type="text" name="username" id="" required>
                 <span></span>
                 <label> Username:</label>
             </div>
 
             <div class="txt_field">
-                <input type="email" name="email" id="">
+                <input type="email" name="email" id="" required>
                 <span></span>
                 <label> Email:</label>
             </div>
 
             <div class="txt_field">
-                <input type="password" name="password" id="">
+                <input type="password" name="password" id="" required>
                 <span></span>
                 <label> Password:</label>
             </div>
 
             <div class="txt_field">
-                <input type="password" name="re_password" id="">
+                <input type="password" name="re_password" id="" required>
                 <span></span>
                 <label> Confirm Password:</label>
             </div>
