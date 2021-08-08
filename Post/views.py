@@ -43,3 +43,10 @@ def signup(request):
             return redirect('login')
 
     return render(request, 'signup.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+def blogs(request):
+    return render(request, 'blogs.html')

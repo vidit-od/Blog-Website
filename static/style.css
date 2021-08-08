@@ -12,25 +12,20 @@ html{
     width: 100%;
     height: 130%;
     object-fit: cover;
-    z-index: -1;
+    z-index: 0;
 
 }
 .navigation{
-    display: flex;
-    justify-content: space-between;
     position: fixed;
+    left: 80%;
     width: 100%;
-    color: black;
-    background-color: white;
+    color: black;;
     z-index: 3;
     height: 7%;
     padding-left: 10px;
 }
-.navigation p{
-    font-size: 30px;
-}
 .navigation button{
-    background-color: transparent;
+    background-color: white;
     width: 100px;
     height: 80%;
     border-radius:20px ;
@@ -49,6 +44,7 @@ html{
     width: 30px;
     bottom: 2%;
     right: 1%;
+    opacity: 1;
 }
 .movement button{
     width: 30px;
@@ -99,8 +95,12 @@ html{
     border-radius: 5px;
     transition: 0.5s;
 }
-.btn button:hover{
+.btn1:hover,.btn2:hover{
     background-color: #39b54a;
+    color: white;
+}
+.logout:hover{
+    background-color: red;
     color: white;
 }
 .logo{
@@ -168,6 +168,16 @@ html{
     color: #39b54a;
     transition: 0.5s;
 }
+
+
+/* js classes */
+.movement .remove{
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+}
+
+/* media  */
 @media screen and (min-width: 1000px){
     .blog{
         width: 240px;

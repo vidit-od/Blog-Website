@@ -12,34 +12,44 @@
 
 <!-- top fixed navigation bar -->
 <div class="navigation">
-    <p>BLOG</p> 
-    
     <button>Menu</button>
 </div>
 
+<!-- buttons to navigate smoothly between pages  -->
+<div class="movement">
+    <div class="above"><a href="#"><button> ^ </button></a>
+    </div>
+    <div class="below"><a href="#"><button> V </button></a>
+    </div>
+</div>
 <!-- quote page with 2 buttons  -->
-<img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
+
+<div class="content">
 <div class="intro" id="top">
+    <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
     <div class="welcome">
-    <p> Welcome Guest </p>
+    {% if user.is_authenticated %}
+    <p> Welcome {{user}} </p>
+    {% else %}
+    <p>Welcome Guest</p>
+    {% endif %}
     <h1>The first step in blogging is not writing them but reading them. </h1>
 
     <div class="btn">
-        <a href="{% url 'login' %}"><button class="btn1">Log In</button></a>
-        <a href="{% url 'signup' %}"><button class="btn2">Sign Up</button></a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'blogs' %}"><button class="btn1">Read Blogs</button></a>
+            <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+        {% else %}
+            <a href="{% url 'login' %}"><button class="btn1">Log In</button></a>
+            <a href="{% url 'signup' %}"><button class="btn2">Sign Up</button></a>
+        {% endif %}
     </div>
 </div>  
 </div>
-<!-- buttons to navigate smoothly between pages  -->
-<div class="movement">
-    <div class="above"><a href="#top"><button> ^ </button></a>
-    </div>
-    <div class="below"><a href="#top"><button> V </button></a>
-    </div>
-</div>
+
 
 <!-- recent hit blogs section -->
-<div class="hit_blogs">
+<div class="hit_blogs" id="hit_blogs">
         <h1>Hit Blogs </h1>
     <p>These are some of the trending blogposts published on our site</p>
 
@@ -72,5 +82,16 @@
     <div class="read_more">
         <button>Read Others</button>
     </div>
+
+
+
+</div>
+
+<div class="contact" id="contact">
+    
+</div>
+
 </div>
 </body>
+
+<script src="{% static 'app.js' %}"></script>
