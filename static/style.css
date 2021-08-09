@@ -15,16 +15,18 @@ html{
     z-index: 0;
 
 }
+
+/* navigation */
 .navigation{
     position: fixed;
-    left: 80%;
-    width: 100%;
-    color: black;;
+    color: black;
+
     z-index: 3;
     height: 7%;
     padding-left: 10px;
 }
 .navigation button{
+    
     background-color: white;
     width: 100px;
     height: 80%;
@@ -36,6 +38,8 @@ html{
     color: #39b54a;
     transition:0.5s;
 }
+
+/* movement  */
 .movement{
     position: fixed;
     z-index: 3;
@@ -50,16 +54,19 @@ html{
     width: 30px;
     height: 30px;
     margin: 1px;
-    color: white;
-    background-color: transparent;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
     border: none;
     transition: 0.5s;
 }
+/* movement above */
 .above button:hover{
     color: white;
     background-color:#39b54a;
     transform: translateY(-5px);
 }
+/* movement below */
 .below button:hover{
     color: white;
     background-color:#39b54a;
@@ -70,6 +77,9 @@ html{
     color: black;
     transition: 0.5s;
 }
+
+/* content */
+/* content intro */
 .intro{
     position: absolute;
     width: 100%;
@@ -108,6 +118,9 @@ html{
     color: white;
     background-color: black;
 }
+
+/* hit blogs */
+/* hit blogs section */
 .hit_blogs{
     position: absolute;
     top:110%;
@@ -117,14 +130,19 @@ html{
     padding-top: 20px;
     background-color: #39b54a;
 }
+/* hit blogs intro text */
 .hit_blogs p{
     font-size: 20px;
 }
+
+/* blogs section */
 .cards{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
+/* a particular blog card */
 .blog{
     min-width: 170px;
     max-width: 260px;
@@ -169,6 +187,16 @@ html{
     transition: 0.5s;
 }
 
+/* contact us section */
+.contact{
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    top: 300%;
+    z-index: 1;
+    position: absolute;
+    
+}
 
 /* js classes */
 .movement .remove{
