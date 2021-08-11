@@ -20,10 +20,16 @@ html{
 .navigation{
     position: fixed;
     color: black;
-
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
     z-index: 3;
     height: 7%;
     padding-left: 10px;
+}
+.navigation p{
+    opacity: 0;
+    pointer-events: none;
 }
 .navigation button{
     
