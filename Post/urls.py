@@ -5,5 +5,6 @@ urlpatterns=[
     path('login',views.login,name='login'),
     path('signup',views.signup,name='signup'),
     path('logout',views.logout,name='logout'),
-    path('blogs',views.blogs,name='blogs')
+    path('blogs',views.blogs,name='blogs'),
+    path('write_blog/<str:pk>',views.write_blog,name='write_blog')
 ]

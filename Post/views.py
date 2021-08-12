@@ -52,3 +52,7 @@ def logout(request):
 def blogs(request):
     posts=post.objects.all()
     return render(request, 'blogs.html',{'posts':posts})
+
+def write_blog(request,pk):
+    name=pk
+    return render(request,'write_blog.html',{'name':name})
