@@ -28,49 +28,30 @@
 </div>
 <div class="section-title"> Recently Published</div>
 <div class="blogs">
+{% for post in posts %}
 <div class="blog">
     <div class="meta">
     <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
     <ul>
-        <li>author</li>
-        <li>date</li>
-        <li>tag</li>
+        <li>{{post.author}}</li>
+        <li>{{post.date}}</li>
+        <li>{{post.catagory}}</li>
     </ul>
     </div>
     <div class="content">
         <div class="title">
-            <h1>hello h1</h1>
+            <h1>{{post.title}}</h1>
             <h2>hello h2</h2>
         </div>
         <div class="description">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste vitae, magnam iure eum, culpa odio, id voluptatum porro aut consequuntur quasi? Necessitatibus enim incidunt ullam quaerat omnis dolorem, modi impedit!</p>
+            <p>{{post.description}}</p>
 
             <button type="submit">Read More</button>
         </div>
     </div>
 </div>
+{% endfor %}
 
-<div class="blog">
-    <div class="meta">
-    <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
-    <ul>
-        <li>author</li>
-        <li>date</li>
-        <li>tag</li>
-    </ul>
-    </div>
-    <div class="content">
-        <div class="title">
-            <h1>hello h1</h1>
-            <h2>hello h2</h2>
-        </div>
-        <div class="description">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste vitae, magnam iure eum, culpa odio, id voluptatum porro aut consequuntur quasi? Necessitatibus enim incidunt ullam quaerat omnis dolorem, modi impedit!</p>
-
-            <button type="submit">Read More</button>
-        </div>
-    </div>
-</div>
 </div>
 </body>
 

@@ -96,13 +96,16 @@ color:black
 .title h2{
   color: gray;
 }
+.description p{
+  position: relative;
+}
 .description p::before{
     content: "";
     position: absolute;
     height: 5px;
     background: #39b54a;
     width: 55px;
-    top:6rem;
+    top:-1rem;
     border-radius: 3px;
 }
 
@@ -142,20 +145,6 @@ color:black
   width: fit-content;
 }
 
-@keyframes shuffle {
-  0%{
-    position: relative;
-  }
-  25%{
-    position: absolute;
-  }
-  75%{
-    position: absolute;
-  }
-  100%{
-    position: relative;
-  }
-}
 
 @media screen and (min-width:740px) {
   .blog{
@@ -180,7 +169,7 @@ color:black
     height: 350px;
     z-index: -1;
     top: 0%;
-    left: -5%;
+    left: -10%;
     transform: rotateZ(7deg);
   }
   .description button{

@@ -4,4 +4,6 @@ from datetime import datetime
 class post(models.Model):
     title= models.CharField(max_length=100)
     date=models.DateField(default=datetime.now,blank=True)
-    body=models.CharField(max_length=10000)
+    description=models.CharField(max_length=10000)
+    author=models.CharField(max_length=100)
+    catagory=models.CharField(max_length=100)

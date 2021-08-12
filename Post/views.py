@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
+from .models import post
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -49,4 +50,5 @@ def logout(request):
     return redirect('/')
 
 def blogs(request):
-    return render(request, 'blogs.html')
+    posts=post.objects.all()
+    return render(request, 'blogs.html',{'posts':posts})
