@@ -1,0 +1,62 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+
+.write_blog{
+    background-color:  #39b54a;
+    color: white;
+    width: 95%;
+    height: 95%;
+    padding: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%,-50%);   
+}
+
+.fields{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: 10px;
+}
+.fields label{
+    font-size: 18px;
+    width: 100px;
+    transform: translateY(25%);
+    margin-right: 20px;
+}
+.fields input{
+    border: none;
+    border-radius: 10px;
+    width: 900px;
+    height: 40px;
+}
+.description{
+    margin-left: 10px;
+}
+.description textarea{
+    width: 97%;
+    overflow: scroll;
+    border: none;
+    font-size: 16px;
+}
+.submit{
+    float: right;
+    margin-right: 20px;
+}
+.submit input{
+    width: 100px;
+    height: 30px;
+    border-radius: 20px;
+    border: none;
+    transition: 0.5s;
+}
+.submit input:hover{
+    background-color: black;
+    color: white;
+}
