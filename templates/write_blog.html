@@ -10,7 +10,8 @@
 <body>
     <main>
         <div class="write_blog">
-            <form action="">
+            <form action="" method="POST">
+                {% csrf_token %}
                 <div class="fields">
                     <label> Title</label>
                     <input type="text" name="title">
@@ -18,17 +19,17 @@
                 </div>
                 <div class="fields">
                     <label> Author</label>
-                    <input type="text" name="author">
+                    <input type="text" name="author" value="{{user}}" disabled>
 
                 </div>
                 <div class="fields">
                     <label> Date</label>
-                    <input type="date" name="date" id="">
-
+                        <input type='text' name="date" id="today">
                 </div>
                 <div class="fields">
                     <label> Catagory</label>
-                    <input type="text" name="catagory">
+                    <select name="catagory" class="catagory" id="catagory">
+                    </select>
 
                 </div>
                 <div class="description">
@@ -42,4 +43,5 @@
         </div>
     </main>
 </body>
+<script src="{% static 'app_write_blog.js' %}"></script>
 </html>

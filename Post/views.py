@@ -54,4 +54,10 @@ def blogs(request):
     return render(request, 'blogs.html',{'posts':posts})
 
 def write_blog(request):
+    if request.method=="POST":
+        title=request.posts("title")
+        author=User
+        date=request.posts('date')
+        catagory=request.posts('catagory')
+        Description=request.posts('Description')
     return render(request,'write_blog.html')
