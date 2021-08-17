@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
+from datetime import datetime
 from .models import post
 # Create your views here.
 def index(request):
@@ -55,9 +56,24 @@ def blogs(request):
 
 def write_blog(request):
     if request.method=="POST":
-        title=request.posts("title")
+        title=request.POST["title"]
         author=User
-        date=request.posts('date')
-        catagory=request.posts('catagory')
-        Description=request.posts('Description')
+        date=datetime.now()
+        catagory=request.POST['catagory']
+        Description=request.POST['Description']
+
+        if title=='' or author=='' or date=='' or catagory=='' or Description=='':
+           messages.info(request, 'empty fields')
+           return redirect('write_blog')
+
+        elif post.objects.filter(title="title").exists():
+            messages.info(request, 'choose different title')
+            return redirect('write_blog')
+
+        else:
+            data= post.objects.create(title=title,author=author,date=date,catagory=catagory,description=Description)
+            data.save()
+            return redirect('blogs')
+
+
     return render(request,'write_blog.html')
