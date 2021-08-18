@@ -57,11 +57,10 @@ def blogs(request):
 def write_blog(request):
     if request.method=="POST":
         title=request.POST["title"]
-        author=User
-        date=datetime.now()
+        author=request.user.username
+        date=(str(datetime.now()))[0:10]
         catagory=request.POST['catagory']
         Description=request.POST['Description']
-
         if title=='' or author=='' or date=='' or catagory=='' or Description=='':
            messages.info(request, 'empty fields')
            return redirect('write_blog')
@@ -70,6 +69,9 @@ def write_blog(request):
             messages.info(request, 'choose different title')
             return redirect('write_blog')
 
+        elif len(Description)<40 :
+            messages.info(request, 'Blog should be descriptive')
+            return redirect('write_blog')
         else:
             data= post.objects.create(title=title,author=author,date=date,catagory=catagory,description=Description)
             data.save()

@@ -10,22 +10,17 @@
 <body>
     <main>
         <div class="write_blog">
+            {% for message in messages %}
+                {{message}}
+            {% endfor %}
             <form action="" method="POST">
                 {% csrf_token %}
                 <div class="fields">
                     <label> Title</label>
                     <input type="text" name="title">
+                </div>
 
-                </div>
-                <div class="fields">
-                    <label> Author</label>
-                    <input type="text" name="author" value="{{user}}">
-
-                </div>
-                <div class="fields">
-                    <label> Date</label>
-                        <input type='text' name="date" id="today">
-                </div>
+                    
                 <div class="fields">
                     <label> Catagory</label>
                     <select name="catagory" class="catagory" id="catagory">
