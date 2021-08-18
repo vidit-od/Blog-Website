@@ -28,7 +28,7 @@
 </div>
 <div class="section-title"> Recently Published</div>
 <div class="blogs">
-{% for post in posts %}
+{% for post in posts reversed %}
 <div class="blog">
     <div class="meta">
     <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
@@ -44,9 +44,9 @@
             <h2>hello h2</h2>
         </div>
         <div class="description">
-            <p>{{post.description}}</p>
+            <p>{{post.description|truncatewords:18}}</p>
 
-            <button type="submit">Read More</button>
+            <button type="submit"><a href="#">Read More</a> </button>
         </div>
     </div>
 </div>

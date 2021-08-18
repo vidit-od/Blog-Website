@@ -69,7 +69,7 @@ def write_blog(request):
             messages.info(request, 'choose different title')
             return redirect('write_blog')
 
-        elif len(Description)<40 :
+        elif len(Description)<150 :
             messages.info(request, 'Blog should be descriptive')
             return redirect('write_blog')
         else:
