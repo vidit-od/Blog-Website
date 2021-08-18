@@ -79,3 +79,6 @@ def write_blog(request):
 
 
     return render(request,'write_blog.html')
+
+def read_blog(request,pk):
+    return render(request,'read_blog.html')
