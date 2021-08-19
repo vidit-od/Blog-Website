@@ -160,7 +160,7 @@ color:black
     display: flex;
   }
   .meta{
-    width: 150%;
+    width: 70%;
   }
   .image{
     width: 100%;
@@ -172,11 +172,11 @@ color:black
     content: "";
     position: absolute;
     background-color: white;
-    width: 40px;
+    width: 70px;
     height: 350px;
     z-index: -1;
     top: 0%;
-    left: -10%;
+    left: -5%;
     transform: rotateZ(7deg);
   }
   .description button{
