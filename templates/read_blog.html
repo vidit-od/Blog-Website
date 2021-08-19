@@ -1,1 +1,19 @@
-hello
+{% load static %}
+<link rel="stylesheet" href="{% static 'style_read_blog.css' %}">
+<div class="blog">
+    <ul>
+        <li>{{blog.author}}</li>
+        <li>{{blog.date}}</li>
+        <li>{{blog.catagory}}</li>
+    </ul>
+    </div>
+    <div class="content">
+        <div class="title">
+            <h1>{{blog.title}}</h1>
+            <h2>hello h2</h2>
+        </div>
+        <div class="description">
+            <p>{{blog.description}}</p>
+        </div>
+    </div>
+</div>

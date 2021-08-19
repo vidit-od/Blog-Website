@@ -186,7 +186,11 @@ color:black
 
 @media screen and (min-width:1000px) {
   .blog{
-    width: 610px; 
-    display: flex;
+    width: 900px; 
+    margin:1rem auto;
+    border-radius: 20px;
+  }
+  .meta{
+    width: 100%;
   }
 }

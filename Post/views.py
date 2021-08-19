@@ -57,6 +57,7 @@ def blogs(request):
 def write_blog(request):
     if request.method=="POST":
         title=request.POST["title"]
+        mini_title=request.POST["mini_title"]
         author=request.user.username
         date=(str(datetime.now()))[0:10]
         catagory=request.POST['catagory']
@@ -65,7 +66,7 @@ def write_blog(request):
            messages.info(request, 'empty fields')
            return redirect('write_blog')
 
-        elif post.objects.filter(title="title").exists():
+        elif post.objects.filter(title=title).exists():
             messages.info(request, 'choose different title')
             return redirect('write_blog')
 
@@ -73,7 +74,7 @@ def write_blog(request):
             messages.info(request, 'Blog should be descriptive')
             return redirect('write_blog')
         else:
-            data= post.objects.create(title=title,author=author,date=date,catagory=catagory,description=Description)
+            data= post.objects.create(title=title,mini_title=mini_title,author=author,date=date,catagory=catagory,description=Description)
             data.save()
             return redirect('blogs')
 
@@ -81,4 +82,5 @@ def write_blog(request):
     return render(request,'write_blog.html')
 
 def read_blog(request,pk):
-    return render(request,'read_blog.html')
+    blog=post.objects.get(title=pk)
+    return render(request,'read_blog.html',{'blog':blog})
