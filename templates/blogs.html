@@ -18,14 +18,31 @@
 <div class="intro">
     <div class="title">
         <h1>Welcome to Blogs</h1>
-        
-        {% if user.is_authenticated %}
-        <h2><a href="{% url 'write_blog' %}">{{user}}</a></h2>
-        {% else %}
-        <h2>guest</h2>
-        {% endif %}
+        <h2><a href="{% url 'write_blog' %}">+</a></h2>
     </div>
 </div>
+<div class="filter">
+    <h3>filter</h3>
+    <form action="">
+        <div class="fields">
+            <label>catagory :</label>
+            <select name="" id=""></select>
+        </div>
+        <div class="fields">
+            <label>Sort :</label>
+            <select name="" id="">
+                <option value="">Latest at Top</option>
+                <option value="">Oldest at Top</option>
+            </select>
+        </div>
+        <div class="fields">
+            <label>Author :</label>
+            <input type="text" name="" id="">
+        </div>
+        <input type="submit" value="">
+    </form>
+</div>
+
 <div class="section-title"> Recently Published</div>
 <div class="blogs">
 {% for post in posts reversed %}
@@ -35,7 +52,7 @@
     <ul>
         <li>{{post.author}}</li>
         <li>{{post.date}}</li>
-        <li>{{post.catagory}}</li>
+        <li class="catagory">{{post.catagory}}</li>
     </ul>
     </div>
     <div class="content">
