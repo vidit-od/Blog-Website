@@ -1,0 +1,39 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f1f1f1;
+}
+
+.blog{
+    background-color: white;
+    width: 90%;
+    margin: 30px auto;
+    padding-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 3px 7px -1px rgb(0 0 0 / 10%);
+    min-height: 90%;
+}
+.title h1{
+    color:  #39b54a;
+    text-transform: capitalize;
+}
+.title h3{
+    color: gray;
+    text-transform: capitalize;
+}
+.title{
+    border-bottom: 2px solid gray;
+    padding: 0px 20px;
+}
+
+.description{
+    padding: 10px 20px;
+}
+.description h2{
+    width: min-content;
+    margin: 0px auto;
+    padding-bottom:10PX ;
+}
