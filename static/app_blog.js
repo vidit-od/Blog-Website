@@ -1,5 +1,7 @@
-let catagory=document.querySelectorAll(".catagory")
+const catagory=document.querySelectorAll(".catagory")
+const catagory_select=document.querySelector(".catagory_select")
 let catagory_list=[]
+const submit=document.getElementById("submit")
 window.addEventListener('DOMContentLoaded',function(){
     for (i=0;i<catagory.length;i++){
         if (i==0){
@@ -10,5 +12,10 @@ window.addEventListener('DOMContentLoaded',function(){
             catagory_list.push(catagory[i].innerHTML)
         }
     }
-    console.log(catagory_list)
+    let line=`<option value=""></option>`
+    for(i=0;i<catagory_list.length;i++){
+        line=line+`<option value="${catagory_list[i]}">${catagory_list[i]}</option>`
+    }
+    console.log(catagory_select.innerHTML)
+    catagory_select.innerHTML=line
 })
