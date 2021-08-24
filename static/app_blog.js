@@ -5,7 +5,6 @@ const form=document.querySelector(".form")
 const submit=document.querySelector(".submit")
 const blog=document.querySelectorAll(".blog")
 const blogs=document.querySelector(".blogs")
-
 window.addEventListener('DOMContentLoaded',function(){
     for (i=0;i<catagory.length;i++){
         if (i==0){
@@ -29,26 +28,27 @@ submit.addEventListener("click",function(){
     const input_sort=document.getElementById("sort").value
     const input_author=document.getElementById("author").value
     let content=""
+    let loop = 0
     if(input_sort=="Latest at Top"){
         for(i=0;i<blog.length;i++){
             if(input_catagory=="" && input_author==""){
-                console.log(1)
+                loop=1
                 content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
             }
             else if(input_catagory=="" && input_author !=""){
-                console.log(2)
+                loop=2
                 if(blog[i].children[0].children[1].children[0].innerHTML==input_author){
                     content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
                 }
             }
             else if(input_catagory!="" && input_author==""){
-                console.log(3)
+                loop=3
                 if(blog[i].children[0].children[1].children[2].innerHTML==input_catagory){
                     content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
                 }
             }
             else{
-                console.log(4)
+                loop=4
                if((blog[i].children[0].children[1].children[2].innerHTML==input_catagory) && (blog[i].children[0].children[1].children[0].innerHTML==input_author)){
                 content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
                }
@@ -58,35 +58,47 @@ submit.addEventListener("click",function(){
         if (content==""){
             content=`<h3> No Results Found For this Filter </h3>`
         }
+        if (loop==1){
+            document.querySelector(".section-title").innerHTML=' Recently Published'
+        }
+        else{
+            document.querySelector(".section-title").innerHTML=' Filtered Results'
+        }
         blogs.innerHTML=content
     }
     else{
         for(i=blog.length-1;i>=0;i--){
             if(input_catagory=="" && input_author==""){
-                console.log(1)
+                loop=1
                 content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
             }
             else if(input_catagory=="" && input_author !=""){
-                console.log(2)
+                loop=2
                 if(blog[i].children[0].children[1].children[0].innerHTML==input_author){
                     content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
                 }
             }
             else if(input_catagory!="" && input_author==""){
-                console.log(3)
+                loop=3
                 if(blog[i].children[0].children[1].children[2].innerHTML==input_catagory){
                     content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
                 }
             }
             else{
-                console.log(4)
-               if((blog[i].children[0].children[1].children[2].innerHTML==input_catagory) && (blog[i].children[0].children[1].children[0].innerHTML==input_author)){
+                loop=4
+                if((blog[i].children[0].children[1].children[2].innerHTML==input_catagory) && (blog[i].children[0].children[1].children[0].innerHTML==input_author)){
                 content=content+'<div class="blog">'+blog[i].innerHTML+'</div>'
                }
             }
         }
         if (content==""){
             content=`<h3> No Results Found For this Filter </h3>`
+        }
+        if (loop==1){
+            document.querySelector(".section-title").innerHTML=' Recently Published'
+        }
+        else{
+            document.querySelector(".section-title").innerHTML=' Filtered Results'
         }
         blogs.innerHTML=content
     }
