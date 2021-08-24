@@ -211,8 +211,8 @@ color:black
     height: 245px;
     display: flex;
   }
-  .meta{
-    width: 70%;
+  .content{
+    width: 400px
   }
   .image{
     width: 100%;
@@ -225,10 +225,10 @@ color:black
     position: absolute;
     background-color: white;
     width: 70px;
-    height: 350px;
+    height: 360px;
     z-index: -1;
-    top: 0%;
-    left: -5%;
+    top: -1%;
+    left: -14%;
     transform: rotateZ(7deg);
   }
   .description button{
@@ -242,7 +242,10 @@ color:black
     margin:1rem auto;
     border-radius: 20px;
   }
-  .meta{
-    width: 100%;
+  .content{
+    width:600px
+  }
+  .content::before{
+    left: -25px;
   }
 }
