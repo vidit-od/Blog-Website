@@ -2,6 +2,7 @@
   margin: 0%;
   padding: 0%;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 } 
 a{
   text-decoration: none;
@@ -205,6 +206,38 @@ body .intro .title button{
   background-color: black;
   color: #39b54a;
   width: fit-content;
+}
+/* scroll to top */
+.scroll_to_top{
+  position:fixed;
+  right: 0%;
+  bottom: 0%;
+  background-color: black;
+  padding: 5px 0px;
+  margin: 5px;
+  border-radius: 10px;
+  border: none;
+  transition:0.5s;
+}
+.scroll_to_top button{
+  background-color: transparent;
+  border: none;
+  width: 25px;
+  height: 25px;
+  color:#39b54a;
+  font-size: 1.7rem;
+  transition: all 1s;
+}
+.scroll_to_top:hover{
+  background-color: #39b54a;
+}
+.scroll_to_top:hover button{
+  color: white;
+  font-weight: 700;
+}
+.hide{
+  opacity: 0;
+  pointer-events: none;
 }
 /* menu */
 .menu{

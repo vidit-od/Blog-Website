@@ -18,8 +18,10 @@
 <div class="menu">
     <button id="close">Close</button>
 </div>
-
-<div class="intro">
+<a href="#intro" class="scroll_to_top">
+  <button>^</button>
+</a> 
+<div class="intro" id="intro">
     <div class="title">
         <h1>Welcome to Blogs</h1>
         <button id="menu">Menu</button> 
@@ -51,7 +53,8 @@
     </div>
 </div>
 
-<div class="section-title"> Recently Published</div>
+<div class="section-title"> Recently Published
+</div>
 
 <div class="blogs">
 {% for post in posts reversed %}
