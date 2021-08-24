@@ -14,13 +14,18 @@
 
 
 <body>
-    
+
+<div class="menu">
+    <button id="close">Close</button>
+</div>
+
 <div class="intro">
     <div class="title">
         <h1>Welcome to Blogs</h1>
-        <h2><a href="{% url 'write_blog' %}">Menu</a></h2>
+        <button id="menu">Menu</button> 
     </div>
 </div>
+
 <div class="filter">
     <h3>filter</h3>
 
@@ -47,6 +52,7 @@
 </div>
 
 <div class="section-title"> Recently Published</div>
+
 <div class="blogs">
 {% for post in posts reversed %}
 <div class="blog">

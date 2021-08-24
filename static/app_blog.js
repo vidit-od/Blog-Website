@@ -103,3 +103,11 @@ submit.addEventListener("click",function(){
         blogs.innerHTML=content
     }
 })
+
+document.getElementById("close").addEventListener("click",function(){
+    document.querySelector(".menu").classList.remove("toggle")
+})
+
+document.getElementById("menu").addEventListener("click",function(){
+    document.querySelector(".menu").classList.add("toggle")
+})
