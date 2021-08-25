@@ -14,13 +14,32 @@
 
 
 <body>
-
+<!-- side menu bar -->
 <div class="menu">
-    <button id="close">Close</button>
+    <button id="close">X</button>
+    <div class="heading">
+    <div class="user">
+        <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
+        <h1>{{ user }}</h1>
+    </div>
+    <div class="logout">Logout</div>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="">Home Page</a></li>
+            <li><a href="">Read Blog</a></li>
+            <li><a href="">Write Blog</a></li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+    </div>
 </div>
+
+<!-- back to top button -->
 <a href="#intro" class="scroll_to_top">
   <button>^</button>
 </a> 
+
+<!-- welcome section of page -->
 <div class="intro" id="intro">
     <div class="title">
         <h1>Welcome to Blogs</h1>
@@ -28,6 +47,7 @@
     </div>
 </div>
 
+<!-- filter section of page -->
 <div class="filter">
     <h3>filter</h3>
 
@@ -53,9 +73,11 @@
     </div>
 </div>
 
+<!-- title -->
 <div class="section-title"> Recently Published
 </div>
 
+<!-- blogs -->
 <div class="blogs">
 {% for post in posts reversed %}
 <div class="blog">

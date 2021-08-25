@@ -244,16 +244,101 @@ body .intro .title button{
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #36454f;
+  background-color: rgb(54,69,79);
   z-index: 5;
   top:0px;
   left: 100%;
   transition: transform 1s;
 }
+#close{
+  background-color: transparent;
+  border: none;
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  float: right;
+  padding-right: 10px;
+  transition: 0.5s;
+}
+#close:hover{
+  color: #39b54a;
+}
+.heading{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 95%;
+  margin-top: 40px;
+}
+.logout{
+  background-color:rgb(24, 45, 59);
+  width: max-content;
+  width: 155px;
+  margin-top: 35px;
+  height: 35px;
+  padding:7px ;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: 0.5s;
+}
+.logout:hover{
+  background-color: red;
+}
+.user{
+  display: flex;
+  position: relative;
+  width: 300px;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 20px;
+  background-color:rgb(24, 45, 59);
+}
+
+.user img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right:10px ;
+}
+.navigation{
+  width: 95%;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 1.4rem;
+  background-color:rgb(24, 45, 59);
+}
+.navigation ul{
+  list-style: none;
+}
+.navigation ul li::after{
+  content: ">>";
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+.navigation ul li:hover::after{
+  opacity: 1;
+  color: #39b54a;
+  transform: translateX(20px);
+  pointer-events: visible;
+}
 .toggle{
   transform: translateX(-100%);
 }
-
+@media screen and (min-width:500px){
+  .menu{
+    max-width:500px
+  }
+}
 @media screen and (min-width:740px) {
   .blog{
     width: 700px;

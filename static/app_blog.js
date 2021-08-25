@@ -132,6 +132,7 @@ window.addEventListener("scroll",function(){
     }
 })
 
+
 // to close menu bar
 document.getElementById("close").addEventListener("click",function(){
     document.querySelector(".menu").classList.remove("toggle")
