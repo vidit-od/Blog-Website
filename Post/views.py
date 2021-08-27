@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from datetime import datetime
-from .models import post
+from .models import post,comment
+from .forms import commentform
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -84,3 +85,19 @@ def write_blog(request):
 def read_blog(request,pk):
     blog=post.objects.get(title=pk)
     return render(request,'read_blog.html',{'blog':blog})
+
+def post_detailview(request,id):
+    if request.method=='Post':
+        cf=commentform(request.POST or None)
+        if cf.is_valid():
+            content=request.POST.get('content')
+            comment=comment.objects.create(post=post,user=request.user, content=content)
+            comment.save()
+            return redirect(post.get_absolute_url())
+        else:
+            cf=commentform()
+
+        context={
+            'comment_form':cf
+        }
+        return render(request,'read_blog.html',context)

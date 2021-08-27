@@ -13,3 +13,6 @@ class comment(models.Model):
     post=models.ForeignKey(post, on_delete=models.CASCADE,related_name='comments')
     user=models.CharField(max_length=100)
     content=models.TextField()
+
+    def __str__(self):
+        return '%s - %s' %(self.post.title, self.user) 

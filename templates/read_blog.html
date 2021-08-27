@@ -1,5 +1,8 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'style_read_blog.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=WindSong:wght@500&display=swap" rel="stylesheet">
 <body>
     <div class="blog">
         <div class="title">
@@ -14,9 +17,22 @@
             <p>{{blog.description}}</p>
         </div>
     </div>
-    <div class="socials">
-        <i class="fas fa-clock"></i>
-        <div class="comments">
+    <div class="comments">
+        <h2>Comments</h2>
+        <div class="view_comments">
+            {% if not blog.comments.all %}
+                <H2>no comments yet</H2>
+            {% else %}
+                {% for comment in blog.comments.all%}
+                    {{comment.user}}
+                    {{comment.content}}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="write_comment">
+            
+        </div>
     </div>
+    
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
