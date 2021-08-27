@@ -4,7 +4,6 @@ from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from datetime import datetime
 from .models import post,comment
-from .forms import commentform
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
