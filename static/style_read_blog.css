@@ -42,12 +42,36 @@ body{
 /* comment section */
 .comments{
     width: 95%;
+    max-width: 600px;
+    margin-left: 20px;
     background-color: #39b54a;
-    margin: 0 auto;
     margin-bottom: 10px;
     border-radius: 10px;
     padding: 10px 0px 10px 10px;
     position: relative;
+}
+
+.comments h2{
+    margin-left: 20px;
+}
+
+
+/* individual comment */
+.individual_comment{
+    min-width: 200px;
+    width: fit-content;
+    margin: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: white;
+}
+.comment_title{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    border-bottom: 20px thick black;
 }
 
 /* write comments form */
