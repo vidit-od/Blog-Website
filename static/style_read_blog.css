@@ -54,7 +54,20 @@ body{
 .comments h2{
     margin-left: 20px;
 }
+/* extras : the bottom section */
+.extras{
+    display: flex;
+    flex-wrap:wrap ;
+}
 
+/* suggestions */
+.suggestions{
+    background-color:  white ;
+    margin-left: 20px;
+    min-width: 600px;
+    padding: 10px;
+    border-radius:20px ;
+}
 
 /* individual comment */
 .individual_comment{
@@ -73,7 +86,9 @@ body{
     justify-content: space-between;
     border-bottom: 20px thick black;
 }
-
+.comment_content{
+    color: gray;
+}
 /* write comments form */
 .write_comment form{
     width: 100%;

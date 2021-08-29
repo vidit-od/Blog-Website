@@ -17,7 +17,8 @@
             <p>{{blog.description}}</p>
         </div>
     </div>
-    <div class="comments">
+    <div class="extras">
+        <div class="comments">
         <h2>Comments</h2>
         <div class="view_comments">
             {% if not blog.comments.all %}
@@ -46,7 +47,13 @@
         {% for message in messages %}
             <h4>{{message}}</h4>
         {% endfor %}
+        </div>
+        <div class="suggestions">
+            <h2>Other Blogs from similar catagory:</h2>
+            {% for suggested in all_blogs %}
+                <a href="/read_blog/{{ suggested.id }}"><p>{{suggested.title}}</p></a>
+            {% endfor %}
+        </div>
     </div>
-    
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>

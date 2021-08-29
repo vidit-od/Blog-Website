@@ -83,7 +83,11 @@ def write_blog(request):
 
 def read_blog(request,pk):
     blog=post.objects.get(id=pk)
-
+    all_blog=post.objects.all()
+    catagory_blog=[]
+    for i in all_blog:
+        if i.catagory==blog.catagory:
+            catagory_blog.append(i)
     if request.method=='POST':
         content=request.POST['comment']
         user=request.user.username
@@ -98,7 +102,7 @@ def read_blog(request,pk):
             return redirect(f'/read_blog/{pk}')
             
         
-    return render(request,'read_blog.html',{'blog':blog})
+    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog })
 
 def post_detailview(request,id):
     if request.method=='Post':
