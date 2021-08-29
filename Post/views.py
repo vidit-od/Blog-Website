@@ -58,12 +58,12 @@ def write_blog(request):
     if request.method=="POST":
         title=request.POST["title"]
         mini_title=request.POST["mini_title"]
-        author=request.user
+        author=request.user.username
         date=(str(datetime.now()))[0:10]
         catagory=request.POST['catagory']
         Description=request.POST['Description']
         if title=='' or author=='' or date=='' or catagory=='' or Description=='' or mini_title=='':
-           messages.info(request, 'Empty Fields Not Allowed')
+           messages.info(request, author)
            return redirect('write_blog')
 
         elif post.objects.filter(title=title).exists():
@@ -83,6 +83,21 @@ def write_blog(request):
 
 def read_blog(request,pk):
     blog=post.objects.get(id=pk)
+
+    if request.method=='POST':
+        content=request.POST['comment']
+        user=request.user.username
+
+        if comment=="":
+            messages.info(request, post_id)
+            return redirect(f'/read_blog/{pk}')
+        
+        else:
+            new_comment=comment.objects.create(post=blog,user=user,content=content)
+            new_comment.save
+            return redirect(f'/read_blog/{pk}')
+            
+        
     return render(request,'read_blog.html',{'blog':blog})
 
 def post_detailview(request,id):
