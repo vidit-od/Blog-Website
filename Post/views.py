@@ -50,8 +50,9 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
-def blogs(request):
-    posts=post.objects.all()
+def blogs(request,pk):
+    posts=post.objects.all().order_by('id')
+    max_blogs=4
     return render(request, 'blogs.html',{'posts':posts})
 
 def write_blog(request):
@@ -93,7 +94,7 @@ def read_blog(request,pk):
         user=request.user.username
 
         if comment=="":
-            messages.info(request, post_id)
+            messages.info(request, "Empty Comment not allowed")
             return redirect(f'/read_blog/{pk}')
         
         else:
@@ -103,19 +104,3 @@ def read_blog(request,pk):
             
         
     return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog })
-
-def post_detailview(request,id):
-    if request.method=='Post':
-        cf=commentform(request.POST or None)
-        if cf.is_valid():
-            content=request.POST.get('content')
-            comment=comment.objects.create(post=post,user=request.user, content=content)
-            comment.save()
-            return redirect(post.get_absolute_url())
-        else:
-            cf=commentform()
-
-        context={
-            'comment_form':cf
-        }
-        return render(request,'read_blog.html',context)
