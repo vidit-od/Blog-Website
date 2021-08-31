@@ -46,12 +46,12 @@
         <button id="menu">Menu</button> 
     </div>
 </div>
-
 <!-- filter section of page -->
 <div class="filter">
     <h3>filter</h3>
-
-    <div class="form">
+    
+    <form action="" method="POST">
+        {% csrf_token %}
         <div class="fields">
             <label>catagory :</label>
             <select name="catagory_select" class="catagory_select" id="catagory_select">
@@ -69,8 +69,8 @@
             <label>Author :</label>
             <input type="text" name="author" id="author">
         </div>
-        <button type="submit" class="submit">submit</button>
-    </div>
+        <input type="submit" value="submit">
+    </form>
 </div>
 
 <!-- title -->
@@ -79,7 +79,7 @@
 
 <!-- blogs -->
 <div class="blogs">
-{% for post in posts reversed %}
+{% for post in posts %}
 <div class="blog">
     <div class="meta">
     <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">

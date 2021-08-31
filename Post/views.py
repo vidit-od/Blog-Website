@@ -51,8 +51,25 @@ def logout(request):
     return redirect('/')
 
 def blogs(request,pk):
-    posts=post.objects.all().order_by('id')
-    max_blogs=4
+    posts=post.objects.all().order_by('id').reverse()
+
+    if request.method=='POST':
+        catagory=request.POST['catagory_select']
+        sort=request.POST['sort']
+        author=request.POST['author']
+
+        if sort=='Latest at Top':
+            posts=post.objects.all().order_by('id').reverse()
+            if catagory!="" and author=="":
+                posts.filter(catagory=catagory)
+            elif catagory=="" and author!="":
+                posts.filter(author=author)
+            elif catagory!="" and author!="":
+                posts.filter(catagory=catagory, author=author)
+            else:
+                pass
+        else:
+            posts=post.objects.all().order_by('id')
     return render(request, 'blogs.html',{'posts':posts})
 
 def write_blog(request):
