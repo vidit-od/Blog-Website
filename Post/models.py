@@ -20,3 +20,7 @@ class comment(models.Model):
 
     def __str__(self):
         return '%s - %s' %(self.post.title, self.user) 
+
+class catagory(models.Model):
+    catagory=models.CharField(max_length=100)
+    image=models.ImageField()
