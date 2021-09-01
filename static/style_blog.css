@@ -44,13 +44,11 @@ body{
   display: flex;
   justify-content: space-between;
 }
-.title button{
+#menu-btn{
   font-family: 'WindSong', cursive;
   color:black;
   background-color: transparent;
-  border: none;
   font-size: 1.5rem;
-  pointer-events: visible;
   font-weight: 600;
 }
 .filter{
