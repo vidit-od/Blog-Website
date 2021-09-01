@@ -44,12 +44,13 @@ body{
   display: flex;
   justify-content: space-between;
 }
-body .intro .title button{
+.title button{
   font-family: 'WindSong', cursive;
   color:black;
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
+  pointer-events: visible;
   font-weight: 600;
 }
 .filter{

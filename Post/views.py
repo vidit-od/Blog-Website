@@ -57,19 +57,31 @@ def blogs(request,pk):
         catagory=request.POST['catagory_select']
         sort=request.POST['sort']
         author=request.POST['author']
-
-        if sort=='Latest at Top':
-            posts=post.objects.all().order_by('id').reverse()
+        messages.info(request, sort)
+        if sort=="Latest at Top":
             if catagory!="" and author=="":
-                posts.filter(catagory=catagory)
+                posts=post.objects.filter(catagory=catagory).order_by('id').reverse()
+                return render(request, 'blogs.html',{'posts':posts})
+
             elif catagory=="" and author!="":
-                posts.filter(author=author)
+                posts=post.objects.filter(author=author).order_by('id').reverse()
+                return render(request, 'blogs.html',{'posts':posts})
+        
             elif catagory!="" and author!="":
-                posts.filter(catagory=catagory, author=author)
-            else:
-                pass
+                posts=post.objects.filter(catagory=catagory , author=author).order_by('id').reverse()
+                return render(request, 'blogs.html',{'posts':posts})
         else:
-            posts=post.objects.all().order_by('id')
+            if catagory!="" and author=="":
+                posts=post.objects.filter(catagory=catagory).order_by('id')
+                return render(request, 'blogs.html',{'posts':posts})
+
+            elif catagory=="" and author!="":
+                posts=post.objects.filter(author=author).order_by('id')
+                return render(request, 'blogs.html',{'posts':posts})
+        
+            elif catagory!="" and author!="":
+                posts=post.objects.filter(catagory=catagory , author=author).order_by('id')
+                return render(request, 'blogs.html',{'posts':posts})
     return render(request, 'blogs.html',{'posts':posts})
 
 def write_blog(request):
