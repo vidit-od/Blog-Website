@@ -27,3 +27,12 @@ class catagory(models.Model):
 
     def __str__(self):
         return '%s' %(self.catagory_name)
+
+class users(models.Model):
+    first_name=models.CharField(max_length=100,blank=True)
+    last_name=models.CharField(max_length=100,blank=True)
+    user_id=models.CharField(max_length=100,blank=False,null=False)
+    gender=models.CharField(max_length=20,blank=True)
+    age=models.IntegerField()
+    profile_pic=models.ImageField(default="images\profile_pic\default-avatar.jpg", upload_to="images/profile_pic/")
+
