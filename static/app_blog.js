@@ -21,12 +21,18 @@ window.addEventListener('DOMContentLoaded',function(){
         remain=Math.ceil(remain)
 
         content=""
+        
+        let current_page=1
         for(i=1;i<=remain;i++){
-            content=content+`<p>${i}</p>`
+            if(i==current_page){
+                content=content+`<p     style="color:green">${i}</p>`    
+            }
+            else{
+                content=content+`<p>${i}</p>`
+            }
         }
         pages.innerHTML=content
 
-        let current_page=parseInt(window.location.pathname.slice(12,))
         // lower limit :((current_page-1)*max_blogs)+1
         // upper limit :current_page*max_blogs
 
@@ -37,6 +43,9 @@ window.addEventListener('DOMContentLoaded',function(){
             }
         }
         blogs.innerHTML=page_content
+    }
+    else{
+        document.querySelector(".pages").style.opacity=0
     }
 })
 

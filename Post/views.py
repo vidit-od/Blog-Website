@@ -50,14 +50,14 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
-def blogs(request,pk):
+def blogs(request):
     posts=post.objects.all().order_by('id').reverse()
     all_catagory=catagory_model.objects.all()
     if request.method=='POST':
         catagory=request.POST['catagory_select']
         sort=request.POST['sort']
         author=request.POST['author']
-        messages.info(request, catagory)
+
         if sort=="Latest at Top":
             if catagory!="All" and author=="":
                 posts=post.objects.filter(catagory=catagory).order_by('id').reverse()
