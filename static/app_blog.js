@@ -10,24 +10,6 @@ const pages=document.querySelector(".page")
 
 // loading content on page
 window.addEventListener('DOMContentLoaded',function(){
-    // from the list of blogs, find all the unique catagories of blog and save it in catagory_list
-    for (i=0;i<catagory.length;i++){
-        if (i==0){
-            catagory_list.push(catagory[i].innerHTML)
-        }
-        else if(!(catagory_list.includes(catagory[i].innerHTML))){
-            catagory_list.push(catagory[i].innerHTML)
-        }
-    }
-    // adding the empty option. for no filter
-    let line=`<option value=""></option>`
-    // creating options according to the list formed above
-    for(i=0;i<catagory_list.length;i++){
-        line=line+`<option value="${catagory_list[i]}">${catagory_list[i]}</option>`
-    }
-    // deploy all the possible catagories
-    catagory_select.innerHTML=line
-
     // when website loads we dont want scroll to top button, we want it after certain scroll
     scroll_to_top.classList.add("hide")
     

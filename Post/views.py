@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from datetime import datetime
-from .models import post,comment
+from .models import post,comment,catagory as catagory_model
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -52,37 +52,37 @@ def logout(request):
 
 def blogs(request,pk):
     posts=post.objects.all().order_by('id').reverse()
-
+    all_catagory=catagory_model.objects.all()
     if request.method=='POST':
         catagory=request.POST['catagory_select']
         sort=request.POST['sort']
         author=request.POST['author']
-        messages.info(request, sort)
+        messages.info(request, catagory)
         if sort=="Latest at Top":
-            if catagory!="" and author=="":
+            if catagory!="All" and author=="":
                 posts=post.objects.filter(catagory=catagory).order_by('id').reverse()
-                return render(request, 'blogs.html',{'posts':posts})
+                return render(request, 'blogs.html',{'posts':posts ,'all_catagory':all_catagory,'selected_catagory':catagory})
 
-            elif catagory=="" and author!="":
+            elif catagory=="All" and author!="":
                 posts=post.objects.filter(author=author).order_by('id').reverse()
-                return render(request, 'blogs.html',{'posts':posts})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_author':author})
         
-            elif catagory!="" and author!="":
+            elif catagory!="All" and author!="":
                 posts=post.objects.filter(catagory=catagory , author=author).order_by('id').reverse()
-                return render(request, 'blogs.html',{'posts':posts})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_author':author})
         else:
             if catagory!="" and author=="":
                 posts=post.objects.filter(catagory=catagory).order_by('id')
-                return render(request, 'blogs.html',{'posts':posts})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_sort':sort})
 
             elif catagory=="" and author!="":
                 posts=post.objects.filter(author=author).order_by('id')
-                return render(request, 'blogs.html',{'posts':posts})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_author':author,'selected_sort':sort})
         
             elif catagory!="" and author!="":
                 posts=post.objects.filter(catagory=catagory , author=author).order_by('id')
-                return render(request, 'blogs.html',{'posts':posts})
-    return render(request, 'blogs.html',{'posts':posts})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_author':author,'selected_sort':sort})
+    return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory})
 
 def write_blog(request):
     if request.method=="POST":

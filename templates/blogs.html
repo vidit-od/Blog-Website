@@ -54,19 +54,33 @@
         <div class="fields">
             <label>catagory :</label>
             <select name="catagory_select" class="catagory_select" id="catagory_select">
-            
+            {% for i in all_catagory %}
+                {% if i.catagory_name == selected_catagory %}
+                <option value="{{i.catagory_name}}" selected>{{i.catagory_name}}</option>
+                {% else %}
+                <option value="{{i.catagory_name}}">{{i.catagory_name}}</option>
+                {% endif %}
+            {% endfor %}
             </select>
         </div>
         <div class="fields">
             <label>Sort :</label>
             <select name="sort" id="sort">
                 <option value="Latest at Top">Latest at Top</option>
+                {% if selected_sort == "Oldest at Top" %}
+                <option value="Oldest at Top" selected>Oldest at Top</option>
+                {% else %}
                 <option value="Oldest at Top">Oldest at Top</option>
+                {% endif %}
             </select>
         </div>
         <div class="fields">
             <label>Author :</label>
+            {% if selected_author != null %}
+            <input type="text" name="author" id="author" placeholder={{selected_author}}>
+            {% else %}
             <input type="text" name="author" id="author">
+            {% endif %}
         </div>
         <input type="submit" value="submit">
     </form>
