@@ -19,7 +19,7 @@ class comment(models.Model):
     date_added=models.DateField(auto_now_add=True)
 
     def __str__(self):
-        return '%s - %s' %(self.post.title, self.user) 
+        return '%s - %s| %s' %(self.content, self.user, self.post.title) 
 
 class catagory(models.Model):
     catagory_name=models.CharField(max_length=100)

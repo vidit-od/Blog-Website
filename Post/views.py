@@ -122,7 +122,7 @@ def read_blog(request,pk):
         content=request.POST['comment']
         user=request.user.username
 
-        if comment=="":
+        if content=="":
             messages.info(request, "Empty Comment not allowed")
             return redirect(f'/read_blog/{pk}')
         
