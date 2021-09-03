@@ -47,3 +47,10 @@ class users(models.Model):
     
     def __str__(self):
         return '%s' %(self.user_id)
+
+class likes(models.Model):
+    like_Post=models.ForeignKey(post, on_delete=models.CASCADE,related_name="liked_on")
+    liked_by=models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.SET_NULL,null=True,related_name="liked_by")
+
+    def __str__(self):
+        return '%s - %s' %(self.like_Post,self.liked_by)
