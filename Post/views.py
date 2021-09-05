@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from datetime import datetime
+from django.urls import reverse
 from .models import post,comment,catagory as catagory_model
 # Create your views here.
 def index(request):
@@ -113,6 +114,7 @@ def write_blog(request):
 
 def read_blog(request,pk):
     blog=post.objects.get(id=pk)
+    total_like=blog.total_likes()
     all_blog=post.objects.all()
     catagory_blog=[]
     for i in all_blog:
@@ -132,4 +134,9 @@ def read_blog(request,pk):
             return redirect(f'/read_blog/{pk}')
             
         
-    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog })
+    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog ,'total_like':total_like})
+
+def like(request,pk):
+    Post = get_object_or_404(post,id=pk)
+    Post.like.add(request.user.id)
+    return HttpResponseRedirect(reverse('read_blog',args=[str(pk)]))

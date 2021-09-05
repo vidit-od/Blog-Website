@@ -16,6 +16,13 @@
             <h2>{{blog.mini_title}}</h2>
             <p>{{blog.description}}</p>
         </div>
+        <div class="social">
+            <div class="likes">
+                <form action="{% url 'like' blog.pk %}">
+                    <button type="submit",name='post_id',value='{{ blog.id }}'>like</button>-{{total_like}}
+                </form>
+            </div>
+        </div>
     </div>
     <div class="extras">
         <div class="comments">
