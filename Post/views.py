@@ -117,6 +117,7 @@ def read_blog(request,pk):
     total_like=blog.total_likes()
     all_blog=post.objects.all()
     catagory_blog=[]
+    like_status=False
     for i in all_blog:
         if i.catagory==blog.catagory:
             catagory_blog.append(i)
@@ -132,11 +133,22 @@ def read_blog(request,pk):
             new_comment=comment.objects.create(post=blog,user=user,content=content)
             new_comment.save
             return redirect(f'/read_blog/{pk}')
-            
-        
-    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog ,'total_like':total_like})
+    
+    if blog.like.filter(id=request.user.id).exists():
+        like_status=True
+    else:
+        like_status=False
+
+    
+    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog ,'total_like':total_like,'like_status':like_status})
 
 def like(request,pk):
-    Post = get_object_or_404(post,id=pk)
-    Post.like.add(request.user.id)
+    Post = post.objects.get(id=pk)
+    like_status=False
+    if Post.like.filter(id=request.user.id).exists(): 
+        Post.like.remove(request.user.id)
+        like_status=False
+    else:
+        Post.like.add(request.user.id)
+        like_status=True
     return HttpResponseRedirect(reverse('read_blog',args=[str(pk)]))

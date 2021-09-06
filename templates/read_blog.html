@@ -1,3 +1,8 @@
+<head>
+    <script src="https://kit.fontawesome.com/95639a2bfb.js" crossorigin="anonymous"></script>
+</head>
+
+
 {% load static %}
 <link rel="stylesheet" href="{% static 'style_read_blog.css' %}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +24,16 @@
         <div class="social">
             <div class="likes">
                 <form action="{% url 'like' blog.pk %}">
-                    <button type="submit",name='post_id',value='{{ blog.id }}'>like</button>-{{total_like}}
+                    {% if like_status == True%}
+                        <button type="submit"name='post_id',value='{{blog.id }}'>
+                            <i class="fas fa-heart"></i>
+                        </button>-{{total_like}}
+                    {% else %}
+                        <button type="submit"name='post_id',value='{{blog.id }}'>
+                            <i class="far fa-heart"></i>
+                        </button>-{{total_like}}
+                    {% endif %}
+        
                 </form>
             </div>
         </div>
