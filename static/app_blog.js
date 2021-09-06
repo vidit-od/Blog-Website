@@ -26,6 +26,12 @@ window.addEventListener('DOMContentLoaded',function(){
 
 // appear a scrool to top button if scrolled below certain level
 window.addEventListener("scroll",function(){
+    if(window.pageYOffset>150){
+        document.querySelector('.menu-btn_second').classList.add('appear')
+    }
+    else{
+        document.querySelector('.menu-btn_second').classList.remove('appear')
+    }
     if(window.pageYOffset>300){
         scroll_to_top.classList.remove("hide")
     }
@@ -42,6 +48,9 @@ document.getElementById("close").addEventListener("click",function(){
 
 // to open menu bar
 document.querySelector(".menu-btn").addEventListener("click",function(){
+    document.querySelector(".menu").classList.add("toggle")
+})
+document.querySelector(".menu-btn_second").addEventListener("click",function(){
     document.querySelector(".menu").classList.add("toggle")
 })
 

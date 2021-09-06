@@ -11,9 +11,9 @@
 <body>
 
 <!-- top fixed navigation bar -->
-<div class="navigation">
+<div class="navigation_second">
     <p>hello</p>
-    <button>Menu</button>
+    <button id="menu-btn">Menu</button>
 </div>
 
 <!-- buttons to navigate smoothly between pages  -->
@@ -24,7 +24,25 @@
     </div>
 </div>
 <!-- quote page with 2 buttons  -->
-
+<!-- side menu bar -->
+<div class="menu">
+    <button id="close">X</button>
+    <div class="heading">
+    <div class="user">
+        <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
+        <h1>{{ user }}</h1>
+    </div>
+    <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="{% url 'index' %}">Home Page</a></li>
+            <li><a href="{% url 'blogs' %}"">Read Blog</a></li>
+            <li><a href="{% url 'write_blog' %}">Write Blog</a></li>
+            <li><a href="/#contact">Contact Us</a></li>
+        </ul>
+    </div>
+</div>
 <div class="content">
 <div class="intro" id="top">
     <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">

@@ -236,13 +236,6 @@ body{
     transform: rotateZ(360deg);
     color: #39b54a;
 }
-<<<<<<< HEAD
-@media screen and (min-width:500px){
-    .menu{
-      max-width:500px
-    }
-  }
-=======
 /* social */
 .social{
     display: flex;
@@ -272,4 +265,3 @@ body{
     text-decoration: none;
     color: #39b54a;
 }
->>>>>>> 5cf2c6619d1ecddc2dec3e7f5c7ff7d921b09e26

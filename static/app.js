@@ -5,6 +5,9 @@ const scroll_up=document.querySelector('.above')
 const scroll_down=document.querySelector('.below')
 const movement=document.querySelector('.movement')
 const hit_blogs=document.querySelector('.hit_blogs')
+const menu_btn=document.getElementById("menu-btn")
+const menu=document.querySelector('.menu')
+
 let position=0
 let max_height=0
 let height_list=[]
@@ -55,6 +58,16 @@ window.addEventListener('scroll',function(){
         }
     }
 })
+
+menu_btn.addEventListener("click",function(){
+    menu.classList.add('toggle')
+})
+
+document.getElementById("close").addEventListener("click",function(){
+    document.querySelector(".menu").classList.remove("toggle")
+})
+
+
 function offset_check(){
     max_height=0
     for(i=0;i<navigation.length;i++){
