@@ -4,6 +4,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=WindSong:wght@500&display=swap" rel="stylesheet">
 <body>
+    <div class="menu-btn">
+        <button id="menu-btn">Menu</button>
+    </div>
+
+<!-- side menu bar -->
+    <div class="menu">
+    <button id="close">X</button>
+    <div class="heading">
+    <div class="user">
+        <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
+        <h1>{{ user }}</h1>
+    </div>
+    <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+    </div>
+    <div class="navigation">
+        <ul>
+            <li><a href="{% url 'index' %}">Home Page</a></li>
+            <li><a href="{% url 'blogs' %}"">Read Blog</a></li>
+            <li><a href="{% url 'write_blog' %}">Write Blog</a></li>
+            <li><a href="/#contact">Contact Us</a></li>
+        </ul>
+    </div>
+    </div>
+
     <div class="blog">
         <div class="title">
             <h1>{{blog.title}}</h1>
@@ -57,3 +81,4 @@
     </div>
 </body>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<script src="{% static 'app_read_blog.js' %}"></script>
