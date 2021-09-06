@@ -1,8 +1,9 @@
-from django.shortcuts import render,redirect
-from django.http import HttpResponse
+from django.shortcuts import render,redirect,get_object_or_404
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from datetime import datetime
+from django.urls import reverse
 from .models import post,comment,catagory as catagory_model
 # Create your views here.
 def index(request):
@@ -113,8 +114,10 @@ def write_blog(request):
 
 def read_blog(request,pk):
     blog=post.objects.get(id=pk)
+    total_like=blog.total_likes()
     all_blog=post.objects.all()
     catagory_blog=[]
+    like_status=False
     for i in all_blog:
         if i.catagory==blog.catagory:
             catagory_blog.append(i)
@@ -130,6 +133,22 @@ def read_blog(request,pk):
             new_comment=comment.objects.create(post=blog,user=user,content=content)
             new_comment.save
             return redirect(f'/read_blog/{pk}')
-            
-        
-    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog })
+    
+    if blog.like.filter(id=request.user.id).exists():
+        like_status=True
+    else:
+        like_status=False
+
+    
+    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog ,'total_like':total_like,'like_status':like_status})
+
+def like(request,pk):
+    Post = post.objects.get(id=pk)
+    like_status=False
+    if Post.like.filter(id=request.user.id).exists(): 
+        Post.like.remove(request.user.id)
+        like_status=False
+    else:
+        Post.like.add(request.user.id)
+        like_status=True
+    return HttpResponseRedirect(reverse('read_blog',args=[str(pk)]))

@@ -2,6 +2,7 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 body{
     background-color: #f1f1f1;
@@ -26,6 +27,7 @@ body{
     color: white;
 }
 .blog{
+    position: relative;
     background-color: white;
     width: 90%;
     margin: 30px auto;
@@ -234,8 +236,40 @@ body{
     transform: rotateZ(360deg);
     color: #39b54a;
 }
+<<<<<<< HEAD
 @media screen and (min-width:500px){
     .menu{
       max-width:500px
     }
   }
+=======
+/* social */
+.social{
+    display: flex;
+    width: 120px;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+/* likes */
+.likes form button{
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: #39b54a;
+    margin-right: 10px;
+}
+.likes_count{
+    margin-top: 5px;
+}
+/* comments button */
+.comments-btn{
+    font-size: 2rem;
+}
+.comments-btn a{
+    text-decoration: none;
+    color: #39b54a;
+}
+>>>>>>> 5cf2c6619d1ecddc2dec3e7f5c7ff7d921b09e26

@@ -38,7 +38,7 @@
 
     <div class="btn">
         {% if user.is_authenticated %}
-            <a href="{% url 'blogs' %"><button class="btn1">Read Blogs</button></a>
+            <a href="/blogs"><button class="btn1">Read Blogs</button></a>
             <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
         {% else %}
             <a href="{% url 'login' %}"><button class="btn1">Log In</button></a>
@@ -81,7 +81,7 @@
         </div>
     </div>
     <div class="read_more">
-        <button>Read Others</button>
+        <a href="/blogs"><button>Read Others</button></a>
     </div>
 
 
