@@ -9,7 +9,7 @@ const pages=document.querySelector(".page")
 const page_left=document.querySelector(".page_left")
 const page_right=document.querySelector(".page_right")
 
-
+// universal variables
 let current_page=1
 let catagory_list=[]
 let max_blogs=4
@@ -54,13 +54,14 @@ document.querySelector(".menu-btn_second").addEventListener("click",function(){
     document.querySelector(".menu").classList.add("toggle")
 })
 
+// go to previous page
 page_left.addEventListener("click",function(){
     if(current_page!=1){
         current_page=current_page-1
     }
     blog_assignment(current_page,max_blogs)
 })
-
+// go to next page
 page_right.addEventListener("click",function(){
     if(current_page!=Math.ceil(blog.length/max_blogs)){
         current_page+=1

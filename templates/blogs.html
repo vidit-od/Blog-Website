@@ -1,6 +1,5 @@
 {% load static %}
-
-
+<!-- import fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
@@ -9,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=WindSong:wght@500&display=swap" rel="stylesheet">
 
-
+<!-- link to css -->
 <link rel="stylesheet" href="{%static 'style_blog.css' %}">
 
 
@@ -36,7 +35,8 @@
             <li><a href="/#contact">Contact Us</a></li>
         </ul>
     </div>
-    </div>
+</div>
+<!-- second menu btn; appears after a little scroll -->
 <div class="menu-btn_second">
     <button id="menu-btn_second">Menu</button>
 </div>
@@ -54,9 +54,10 @@
 <!-- filter section of page -->
 <div class="filter">
     <h3>filter</h3>
-    
+    <!-- filter form; -->
     <form action="" method="POST">
         {% csrf_token %}
+        <!-- catagory field -->
         <div class="fields">
             <label>catagory :</label>
             <select name="catagory_select" class="catagory_select" id="catagory_select">
@@ -69,6 +70,7 @@
             {% endfor %}
             </select>
         </div>
+        <!-- sort field -->
         <div class="fields">
             <label>Sort :</label>
             <select name="sort" id="sort">
@@ -80,6 +82,7 @@
                 {% endif %}
             </select>
         </div>
+        <!-- Author field -->
         <div class="fields">
             <label>Author :</label>
             {% if selected_author != null %}
@@ -88,6 +91,7 @@
             <input type="text" name="author" id="author">
             {% endif %}
         </div>
+        <!-- submit button -->
         <input type="submit" value="submit">
     </form>
 </div>
@@ -96,32 +100,38 @@
 <div class="section-title"> Recently Published
 </div>
 
-<!-- blogs -->
+<!-- blogs: contains all blogs -->
 <div class="blogs">
 {% for post in posts %}
-<div class="blog">
-    <div class="meta">
-    <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
-    <ul>
-        <li>{{post.author}}</li>
-        <li>{{post.date}}</li>
-        <li class="catagory">{{post.catagory}}</li>
-    </ul>
-    </div>
-    <div class="content">
-        <div class="title">
-            <h1>{{post.title}}</h1>
-            <h2>{{post.mini_title}}</h2>
+    <!-- blog: a particular blog -->
+    <div class="blog">
+        <!-- image according to catagory -->
+        <div class="meta">
+            <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
+            <ul>
+                <li>{{post.author}}</li>
+                <li>{{post.date}}</li>
+                <li class="catagory">{{post.catagory}}</li>
+            </ul>
         </div>
-        <div class="description">
-            <p>{{post.description|truncatewords:7}}</p>
-
-            <button type="submit"><a href="read_blog/{{ post.id }}">Read More</a> </button>
+        <!-- main content of blog -->
+        <div class="content">
+            <!-- titles of blog -->
+            <div class="title">
+                <h1>{{post.title}}</h1>
+                <h2>{{post.mini_title}}</h2>
+            </div>
+            <!-- a little description and read more button -->
+            <div class="description">
+                <p>{{post.description|truncatewords:7}}</p>
+                <button type="submit"><a href="read_blog/{{ post.id }}">Read More</a> </button>
+            </div>
         </div>
     </div>
-</div>
 {% endfor %}
 </div>
+
+<!-- js divides list of all blogs to smaller units and these buttons help us to navigate between them -->
 <div class="pages">
     <button class="page_left"><</button>
     <div class="page"></div>

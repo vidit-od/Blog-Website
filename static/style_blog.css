@@ -1,3 +1,4 @@
+/* universal tags */
 *{
   margin: 0%;
   padding: 0%;
@@ -11,17 +12,11 @@ a{
 button{
   border: none;
 }
-.title a{
-  color: black;
-}
 body{
   background-color: #f1f1f1;
   font-family: 'Poppins', sans-serif;
 }
-.blogs{
-  display: flex;
-  flex-wrap: wrap;
-}
+/* heading of the page and a designed menu button */
 .intro{
   background-color: #39b54a;
   width: 90%;
@@ -51,6 +46,25 @@ body{
   font-size: 1.5rem;
   font-weight: 600;
 }
+/* second menu btn */
+.menu-btn_second{
+  position: fixed;
+  right: 15px;
+  top: -30px;
+  z-index: 3;
+  transition: transform 0.5s;
+}
+.menu-btn_second button{
+  font-size: 1.2rem;
+  background-color: black;
+  color: #39b54a;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
+  border: none;
+  transition: 0.5s;
+}
+/* filter section */
 .filter{
   background-color: #39b54a;
   width: 90%;
@@ -105,6 +119,24 @@ body{
 .fields input,.fields select{
   width: 70%;
   max-width: 400px;
+}
+/* section-title */
+.section-title{
+  margin-left: 5%;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 10px;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: black;
+  color: #39b54a;
+  width: fit-content;
+}
+/* blogs section */
+.blogs{
+  display: flex;
+  flex-wrap: wrap;
 }
 .image{
   width: 100%;
@@ -173,7 +205,6 @@ body{
     top:-1rem;
     border-radius: 3px;
 }
-
 .description button{
   background-color: transparent;
   border: none;
@@ -196,18 +227,6 @@ body{
 }
 .description button:hover::after{
   opacity: 1;
-}
-.section-title{
-  margin-left: 5%;
-  padding-left: 15px;
-  padding-right: 15px;
-  border-radius: 10px;
-  margin-top: 5px;
-  font-size: 20px;
-  font-weight: 700;
-  background-color: black;
-  color: #39b54a;
-  width: fit-content;
 }
 /* scroll to top */
 .scroll_to_top{
@@ -237,9 +256,17 @@ body{
   color: white;
   font-weight: 700;
 }
+
+
+/* js classes */
+/* hide scroll to top button if current position is less than a particular pixels */
 .hide{
   opacity: 0;
   pointer-events: none;
+}
+/* appear the menu button if we scroll */
+.appear{
+  transform: translateY(35px);
 }
 /* menu */
 .menu{
@@ -317,7 +344,6 @@ body{
   border-radius: 20px;
   background-color:rgb(24, 45, 59);
 }
-
 .user img{
   width: 50px;
   height: 50px;
@@ -379,32 +405,14 @@ body{
   margin: 5px;
 }
 
-/* second menu btn */
-.menu-btn_second{
-  position: fixed;
-  right: 15px;
-  top: -30px;
-  z-index: 3;
-  transition: transform 0.5s;
-}
-.appear{
-  transform: translateY(35px);
-}
-.menu-btn_second button{
-  font-size: 1.2rem;
-  background-color: black;
-  color: #39b54a;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 20px;
-  border: none;
-  transition: 0.5s;
-}
+/* media */
+/* limit slide menu width */
 @media screen and (min-width:500px){
   .menu{
     max-width:500px
   }
 }
+/* side image view */
 @media screen and (min-width:740px) {
   .blog{
     width: 700px;
@@ -438,7 +446,7 @@ body{
     max-width: 500px;
   }
 }
-
+/* increase blog width */
 @media screen and (min-width:1000px) {
   .section-title{
     margin-bottom: 2px;
