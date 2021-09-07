@@ -23,6 +23,7 @@
     <div class="below"><a href="#"><button> V </button></a>
     </div>
 </div>
+
 <!-- quote page with 2 buttons  -->
 <!-- side menu bar -->
 <div class="menu">
@@ -46,37 +47,49 @@
             <li><a href="/#contact">Contact Us</a></li>
         </ul>
     </div>
-    </div>
-<div class="content">
-<div class="intro" id="top">
-    <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
-    <div class="welcome">
-    {% if user.is_authenticated %}
-    <p> Welcome {{user}} </p>
-    {% else %}
-    <p>Welcome Guest</p>
-    {% endif %}
-    <h1>The first step in blogging is not writing them but reading them. </h1>
+</div>
 
-    <div class="btn">
+<!-- all the content of page -->
+<div class="content">
+
+<!-- first page: intro page -->
+<div class="intro" id="top">
+    <!-- background of first page is an image -->
+    <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
+    <!-- welcome guest/ welcome user name -->
+    <div class="welcome">
         {% if user.is_authenticated %}
-            <a href="/blogs"><button class="btn1">Read Blogs</button></a>
-            <a href="{% url 'logout' %}"><button class="logout-btn">Logout</button></a>
+            <p> Welcome {{user}} </p>
         {% else %}
-            <a href="{% url 'login' %}"><button class="btn1">Log In</button></a>
-            <a href="{% url 'signup' %}"><button class="btn2">Sign Up</button></a>
+            <p>Welcome Guest</p>
         {% endif %}
-    </div>
-</div>  
+        <!-- blog quote -->
+        <h1>The first step in blogging is not writing them but reading them. </h1>
+    
+        <!-- 2 btns; if guest buttens are: login & signup -->
+        <!-- if logged in user then:Read blogs and logout -->
+        <div class="btn">
+            {% if user.is_authenticated %}
+                <a href="/blogs"><button class="btn1">Read Blogs</button></a>
+                <a href="{% url 'logout' %}"><button class="logout-btn">Logout</button></a>
+            {% else %}
+                <a href="{% url 'login' %}"><button class="btn1">Log In</button></a>
+                <a href="{% url 'signup' %}"><button class="btn2">Sign Up</button></a>
+            {% endif %}
+        </div>
+    </div>  
 </div>
 
 
-<!-- recent hit blogs section -->
+<!--2nd page: recent hit blogs section -->
 <div class="hit_blogs" id="hit_blogs">
-        <h1>Hit Blogs </h1>
+    <!-- title of hit blogs section -->
+    <h1>Hit Blogs </h1>
     <p>These are some of the trending blogposts published on our site</p>
 
+    <!-- cards: collection of all blogs -->
     <div class="cards">
+        <!-- blog: a partivular blog -->
         <div class="blog">
             <div class="title"><h2>Blog 1</h2> </div>
             <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
@@ -102,14 +115,14 @@
             <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
         </div>
     </div>
+
+    <!-- read more button to redirect to blogs.html -->
     <div class="read_more">
         <a href="/blogs"><button>Read Others</button></a>
     </div>
-
-
-
 </div>
 
+<!-- 3rd page: contact us page -->
 <div class="contact" id="contact">
     <h1>contact us</h1>
 </div>

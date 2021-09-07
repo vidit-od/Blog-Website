@@ -1,5 +1,6 @@
 
 // varible declaration
+// buttons
 const content= document.querySelector('.content')
 const scroll_up=document.querySelector('.above')
 const scroll_down=document.querySelector('.below')
@@ -8,9 +9,12 @@ const hit_blogs=document.querySelector('.hit_blogs')
 const menu_btn=document.getElementById("menu-btn")
 const menu=document.querySelector('.menu')
 
+// universal variables
 let position=0
 let max_height=0
 let height_list=[]
+
+// when page loads
 window.addEventListener('DOMContentLoaded',function(){
     // creating a list of all the sections in page
     // this list will be used for smooth scroll
@@ -23,10 +27,16 @@ window.addEventListener('DOMContentLoaded',function(){
     offset_check()
 })
 
-// dynamic page offset allocation
+// dynamic page offset allocation;
+// the hit blog page's height is dynamic; so we have to allocate next page according to height of this page
 window.addEventListener('resize',function (){
     offset_check()
 })
+
+// whenever we scroll; first offset check to get position of all pages
+// then find current position; fand which page we are on
+// set previous page value = current page -1 
+// set next page value=current page +1
 window.addEventListener('scroll',function(){
     offset_check()
     for(i=0;i<navigation.length;i++){
@@ -39,17 +49,6 @@ window.addEventListener('scroll',function(){
         if(down==navigation.length){
             down=navigation.length-1
         }
-
-        // if(i==0){
-        //     scroll_up.classList.add('.remove')
-        // }
-        // else if(i==navigation.length-1){
-        //     scroll_down.classList.add('.remove')
-        // }
-        // else{
-        //     scroll_up.classList.remove('.remove')
-        //     scroll_down.classList.remove('.remove')    
-        // }
         scroll_up.innerHTML=`<div class="above"><a href="#${navigation[up].id}"><button> ^ </button></a></div>`
 
             
@@ -59,15 +58,18 @@ window.addEventListener('scroll',function(){
     }
 })
 
+// to open side menu
 menu_btn.addEventListener("click",function(){
     menu.classList.add('toggle')
 })
 
+// to close side menu
 document.getElementById("close").addEventListener("click",function(){
     document.querySelector(".menu").classList.remove("toggle")
 })
 
-
+// the off set check function
+// gives a list of height of each page 
 function offset_check(){
     max_height=0
     for(i=0;i<navigation.length;i++){

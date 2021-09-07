@@ -1,3 +1,4 @@
+/* universal tags */
 *{
     margin: 0%;
     padding: 0%;
@@ -16,7 +17,7 @@ html{
 
 }
 
-/* navigation */
+/* navigation ; for menu button on top of the page */
 .navigation_second{
     position: fixed;
     color: black;
@@ -45,7 +46,7 @@ html{
     transition:0.5s;
 }
 
-/* movement  */
+/* movement: next page and previous page buttons */
 .movement{
     position: fixed;
     z-index: 3;
@@ -66,13 +67,13 @@ html{
     border: none;
     transition: 0.5s;
 }
-/* movement above */
+/* movement above: previous page button */
 .above button:hover{
     color: white;
     background-color:#39b54a;
     transform: translateY(-5px);
 }
-/* movement below */
+/* movement below: next page button */
 .below button:hover{
     color: white;
     background-color:#39b54a;
@@ -85,7 +86,7 @@ html{
 }
 
 /* content */
-/* content intro */
+/* content intro the first page of index.html*/
 .intro{
     position: absolute;
     width: 100%;
@@ -102,6 +103,7 @@ html{
 .intro p{
     color: grey;
 }
+/* btn 1 & btn 2 if the user not logged in  */
 .btn button{
     width: 150px;
     height: 30px;
@@ -115,14 +117,10 @@ html{
     background-color: #39b54a;
     color: white;
 }
+/* btn 1 & logout if user is logged in */
 .logout-btn:hover{
     background-color: red;
     color: white;
-}
-.logo{
-    position: absolute;
-    color: white;
-    background-color: black;
 }
 
 /* hit blogs */
@@ -204,12 +202,6 @@ html{
     
 }
 
-/* js classes */
-.movement .remove{
-    opacity: 0;
-    pointer-events: none;
-    position: absolute;
-}
 /* menu */
 .menu{
     position: fixed;
@@ -236,6 +228,7 @@ html{
   #close:hover{
     color: #39b54a;
   }
+  /* top section of menu : with user name; edit profile & logout */
   .heading{
     display: flex;
     justify-content: space-between;
@@ -243,6 +236,7 @@ html{
     width: 95%;
     margin-top: 40px;
   }
+  /* edit profile */
   .Edit_Profile{
     background-color:rgb(24, 45, 59);
     width: max-content;
@@ -259,6 +253,7 @@ html{
   .Edit_Profile:hover{
     background-color: #39b54a;
   }
+  /* logout */
   .logout{
     background-color:rgb(24, 45, 59);
     width: max-content;
@@ -276,6 +271,7 @@ html{
   .logout:hover{
     background-color: red;
   }
+  /* user data */
   .user{
     display: flex;
     position: relative;
@@ -293,6 +289,7 @@ html{
     border-radius: 50%;
     margin-right:10px ;
   }
+  /* links to all pages of website */
   .navigation{
     width: 95%;
     height: 400px;
@@ -323,18 +320,20 @@ html{
     transform: translateX(20px);
     pointer-events: visible;
   }
-  .toggle{
+
+/* js classes */
+/* to slide open the side menu */
+.toggle{
     transform: translateX(-100%);
   }
-
 /* media  */
+/* to limit blog width */
 @media screen and (min-width: 1000px){
     .blog{
         width: 240px;
-
     }   
 }
-
+/* to limit menu width */
 @media screen and (min-width:500px){
     .menu{
       max-width:500px
