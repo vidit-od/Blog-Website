@@ -1,56 +1,65 @@
+<!-- link fas fa icons -->
 <head>
     <script src="https://kit.fontawesome.com/95639a2bfb.js" crossorigin="anonymous"></script>
 </head>
 
 
 {% load static %}
+<!-- link css file -->
 <link rel="stylesheet" href="{% static 'style_read_blog.css' %}">
+<!-- load fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=WindSong:wght@500&display=swap" rel="stylesheet">
+
 <body>
-    <div class="menu-btn">
-        <button id="menu-btn">Menu</button>
-    </div>
+<!-- menu btn:open sliding menu -->
+<div class="menu-btn">
+    <button id="menu-btn">Menu</button>
+</div>
 
 <!-- side menu bar -->
     <div class="menu">
-    <button id="close">X</button>
-    <div class="heading">
-    <div class="user">
-        <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
-        <h1>{{ user }}</h1>
-    </div>
-    <div class="menu_btns">    
-        <a href="/Edit_Profile/{{user}}"><button class="Edit_Profile">Edit Profile</button></a>
+        <button id="close">X</button>
+        <div class="heading">
+            <div class="user">
+                <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
+                <h1>{{ user }}</h1>
+            </div>
+            <div class="menu_btns">    
+                <a href="/Edit_Profile/{{user}}"><button class="Edit_Profile">Edit Profile</button></a>
 
-        <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+                <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+            </div>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="{% url 'index' %}">Home Page</a></li>
+                <li><a href="{% url 'blogs' %}"">Read Blog</a></li>
+                <li><a href="{% url 'write_blog' %}">Write Blog</a></li>
+                <li><a href="/#contact">Contact Us</a></li>
+            </ul>
+        </div>
     </div>
-    </div>
-    <div class="navigation">
-        <ul>
-            <li><a href="{% url 'index' %}">Home Page</a></li>
-            <li><a href="{% url 'blogs' %}"">Read Blog</a></li>
-            <li><a href="{% url 'write_blog' %}">Write Blog</a></li>
-            <li><a href="/#contact">Contact Us</a></li>
-        </ul>
-    </div>
-    </div>
-
+<!-- blog info -->
     <div class="blog">
+        <!-- title and details -->
         <div class="title">
             <h1>{{blog.title}}</h1>
-            <h3>By :{{blog.author}}
-            </h3>
+            <h3>By :{{blog.author}}</h3>
             <h3>Catagory : {{blog.catagory}}</h3>
             <h3>Published on : {{blog.date}}</h3>
         </div>
+        <!-- blog content -->
         <div class="description">
             <h2>{{blog.mini_title}}</h2>
             <p>{{blog.description}}</p>
         </div>
+        <!-- like and comments -->
         <div class="social">
+            <!-- add likes -->
             <div class="likes">
+                <!-- if already liked: show filled heart; else show empty heart -->
                 <form action="{% url 'like' blog.pk %}">
                     {% if like_status == True%}
                         <button type="submit"name='post_id',value='{{blog.id }}'>
@@ -64,43 +73,53 @@
         
                 </form>
             </div>
+            <!-- scroll to comment section -->
             <div class="comments-btn">
                 <a href="#comments"><i class="far fa-comment"></i></a>
             </div>
+            <!-- display total number of likes in that particular blog -->
             <div class="likes_count">Liked by <b>{{total_like}} Users</b></div>
         </div>
     </div>
+<!-- extra section: contains comment section adn suggestions -->
     <div class="extras">
+        <!-- comments section -->
         <div class="comments" id="comments">
-        <h2>Comments</h2>
-        <div class="view_comments">
-            {% if not blog.comments.all %}
-                <H2>no comments yet</H2>
-            {% else %}
-                {% for comment in blog.comments.all%}
-                    <div class="individual_comment">
-                        <div class="comment_title">
-                            <h3>{{comment.user}}</h3>
-                            <p>{{comment.date_added}}</p>
+            <!-- comments title -->
+            <h2>Comments</h2>
+            <!-- show No comments yet if there are no comments on the blog -->
+            <!-- else show all the comments in the blog -->
+            <div class="view_comments">
+                {% if not blog.comments.all %}
+                    <H2>no comments yet</H2>
+                {% else %}
+                    {% for comment in blog.comments.all%}
+                        <div class="individual_comment">
+                            <div class="comment_title">
+                                <h3>{{comment.user}}</h3>
+                                <p>{{comment.date_added}}</p>
+                            </div>
+                            <div class="comment_content">
+                                {{comment.content}}
+                            </div>
                         </div>
-                        <div class="comment_content">
-                            {{comment.content}}
-                        </div>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-        <div class="write_comment">
-            <form action="" method="POST">
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <!-- write comments here -->
+            <div class="write_comment">
+                <form action="" method="POST">
                 {% csrf_token %}
-                <input type="text" name="comment" id="" placeholder='write comment'>    
-                <input type="submit" value=">">
-            </form>
+                    <input type="text" name="comment" id="" placeholder='write comment'>    
+                    <input type="submit" value=">">
+                </form>
+            </div>
+            <!-- message section if comment bar is empty -->
+            {% for message in messages %}
+                <h4>{{message}}</h4>
+            {% endfor %}
         </div>
-        {% for message in messages %}
-            <h4>{{message}}</h4>
-        {% endfor %}
-        </div>
+        <!-- siggestion section -->
         <div class="suggestions">
             <h2>Other Blogs from similar catagory:</h2>
             {% for suggested in all_blogs %}
@@ -109,5 +128,5 @@
         </div>
     </div>
 </body>
-<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<!-- link to js -->
 <script src="{% static 'app_read_blog.js' %}"></script>

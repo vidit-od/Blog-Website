@@ -1,3 +1,4 @@
+/* universal tags */
 *{
     margin: 0%;
     padding: 0%;
@@ -7,6 +8,7 @@
 body{
     background-color: #f1f1f1;
 }
+/* menu btn to trigger side menu */
 .menu-btn{
     position: fixed;
     right: 15px;
@@ -26,6 +28,124 @@ body{
     background-color: #39b54a;
     color: white;
 }
+/* side menu */
+.menu{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(54,69,79);
+  z-index: 5;
+  top:0px;
+  left: 100%;
+  transition: transform 1s;
+}
+#close{
+  background-color: transparent;
+  border: none;
+  color: black;
+  width: 30px;
+  height: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  float: right;
+  padding-right: 10px;
+  transition: 0.5s;
+}
+#close:hover{
+  color: #39b54a;
+}
+.heading{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 95%;
+  margin-top: 40px;
+}
+.Edit_Profile{
+  background-color:rgb(24, 45, 59);
+  width: max-content;
+  border: none;
+  width: 155px;
+  height: 35px;
+  padding:5px ;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: 0.5s;
+}
+.Edit_Profile:hover{
+  background-color: #39b54a;
+}
+.logout{
+  background-color:rgb(24, 45, 59);
+  width: max-content;
+  width: 155px;
+  height: 35px;
+  padding:5px ;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: 0.5s;
+  border: none;
+}
+.logout:hover{
+  background-color: red;
+}
+.user{
+  display: flex;
+  position: relative;
+  width: 500px;
+  margin-right: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  border-radius: 20px;
+  background-color:rgb(24, 45, 59);
+}
+.user img{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right:10px ;
+}
+.navigation{
+  width: 95%;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 1.4rem;
+  background-color:rgb(24, 45, 59);
+}
+.navigation ul{
+  list-style: none;
+}
+.navigation ul li a{
+  text-decoration: none;
+  color: #39b54a;
+}
+.navigation ul li::after{
+  content: ">>";
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s;
+}
+.navigation ul li:hover::after{
+  opacity: 1;
+  color: #39b54a;
+  transform: translateX(20px);
+  pointer-events: visible;
+}
+.toggle{
+  transform: translateX(-100%);
+}
+
+/* blog */
 .blog{
     position: relative;
     background-color: white;
@@ -36,6 +156,7 @@ body{
     box-shadow: 0 3px 7px -1px rgb(0 0 0 / 10%);
     min-height: 90%;
 }
+/* blog title */
 .title h1{
     color:  #39b54a;
     text-transform: capitalize;
@@ -48,7 +169,7 @@ body{
     border-bottom: 2px solid gray;
     padding: 0px 20px;
 }
-
+/* blog content */
 .description{
     padding: 10px 20px;
 }
@@ -58,124 +179,42 @@ body{
     margin: 0px auto;
     padding-bottom:10PX ;
 }
-/* menu */
-.menu{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(54,69,79);
-    z-index: 5;
-    top:0px;
-    left: 100%;
-    transition: transform 1s;
-  }
-  #close{
-    background-color: transparent;
-    border: none;
-    color: black;
-    width: 30px;
-    height: 30px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    float: right;
-    padding-right: 10px;
-    transition: 0.5s;
-  }
-  #close:hover{
-    color: #39b54a;
-  }
-  .heading{
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 95%;
-    margin-top: 40px;
-  }
-  .Edit_Profile{
-    background-color:rgb(24, 45, 59);
-    width: max-content;
-    border: none;
-    width: 155px;
-    height: 35px;
-    padding:5px ;
-    text-align: center;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 1rem;
-    transition: 0.5s;
-  }
-  .Edit_Profile:hover{
-    background-color: #39b54a;
-  }
-  .logout{
-    background-color:rgb(24, 45, 59);
-    width: max-content;
-    width: 155px;
-    height: 35px;
-    padding:5px ;
-    margin-top: 5px;
-    text-align: center;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: 1rem;
-    transition: 0.5s;
-    border: none;
-  }
-  .logout:hover{
-    background-color: red;
-  }
-  .user{
-    display: flex;
-    position: relative;
-    width: 500px;
-    margin-right: 20px;
-    padding: 10px;
-    padding-left: 20px;
-    border-radius: 20px;
-    background-color:rgb(24, 45, 59);
-  }
-  
-  .user img{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-right:10px ;
-  }
-  .navigation{
-    width: 95%;
-    height: 400px;
-    margin: 0 auto;
-    margin-top: 10px;
-    border-radius: 20px;
-    padding: 20px;
-    font-size: 1.4rem;
-    background-color:rgb(24, 45, 59);
-  }
-  .navigation ul{
-    list-style: none;
-  }
-  .navigation ul li a{
-    text-decoration: none;
-    color: #39b54a;
-  }
-  .navigation ul li::after{
-    content: ">>";
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.5s;
-  }
-  .navigation ul li:hover::after{
-    opacity: 1;
-    color: #39b54a;
-    transform: translateX(20px);
-    pointer-events: visible;
-  }
-  .toggle{
-    transform: translateX(-100%);
-  }
-  
+
+/* social */
+.social{
+  display: flex;
+  width: 120px;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+/* likes */
+.likes form button{
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #39b54a;
+  margin-right: 10px;
+}
+.likes_count{
+  margin-top: 5px;
+}
+/* comments button */
+.comments-btn{
+  font-size: 2rem;
+}
+.comments-btn a{
+  text-decoration: none;
+  color: #39b54a;
+}
+/* extras : the bottom section */
+.extras{
+  display: flex;
+  flex-wrap:wrap ;
+}
+
 /* comment section */
 .comments{
     width: 95%;
@@ -191,12 +230,58 @@ body{
 .comments h2{
     margin-left: 20px;
 }
-/* extras : the bottom section */
-.extras{
-    display: flex;
-    flex-wrap:wrap ;
+/* individual comment / view comments*/
+.individual_comment{
+  min-width: 200px;
+  width: fit-content;
+  margin: 10px;
+  margin-left: 10px;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-color: white;
 }
-
+.comment_title{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-bottom: 20px thick black;
+}
+.comment_content{
+  color: gray;
+}
+/* write comments form */
+.write_comment form{
+  width: 100%;
+  display: flex;
+  bottom: 0;
+  margin-bottom: 5px;
+}
+.write_comment form input[type=text]{
+  width: 500px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+.write_comment form input[type=submit]{
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 10px;
+  transition: 0.5s;
+}
+.write_comment form input[type=submit]:hover{
+  background-color: black;
+  transform: rotateZ(360deg);
+  color: #39b54a;
+}
 /* suggestions */
 .suggestions{
     background-color:  white ;
@@ -206,90 +291,8 @@ body{
     border-radius:20px ;
 }
 
-/* individual comment */
-.individual_comment{
-    min-width: 200px;
-    width: fit-content;
-    margin: 10px;
-    margin-left: 10px;
-    padding: 10px;
-    overflow: hidden;
-    border-radius: 20px;
-    background-color: white;
-}
-.comment_title{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    border-bottom: 20px thick black;
-}
-.comment_content{
-    color: gray;
-}
-/* write comments form */
-.write_comment form{
-    width: 100%;
-    display: flex;
-    bottom: 0;
-    margin-bottom: 5px;
-}
-.write_comment form input[type=text]{
-    width: 500px;
-    height: 30px;
-    border-radius: 15px;
-    border: none;
-    outline: none;
-    padding: 10px;
-}
-.write_comment form input[type=submit]{
-    height: 30px;
-    width: 30px;
-    background-color: white;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-left: 10px;
-    transition: 0.5s;
-}
-.write_comment form input[type=submit]:hover{
-    background-color: black;
-    transform: rotateZ(360deg);
-    color: #39b54a;
-}
-/* social */
-.social{
-    display: flex;
-    width: 120px;
-    flex-wrap: wrap;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 20px;
-    margin-left: 20px;
-}
-/* likes */
-.likes form button{
-    background-color: transparent;
-    border: none;
-    font-size: 2rem;
-    color: #39b54a;
-    margin-right: 10px;
-}
-.likes_count{
-    margin-top: 5px;
-}
-/* comments button */
-.comments-btn{
-    font-size: 2rem;
-}
-.comments-btn a{
-    text-decoration: none;
-    color: #39b54a;
-}
-
 /* media */
-
+/* to limit width of side menu */
 @media screen and (min-width:500px){
     .menu{
       max-width:500px
