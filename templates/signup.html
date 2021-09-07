@@ -1,47 +1,54 @@
 {% load static%}
+<!-- link css -->
 <link rel="stylesheet" href="{% static 'style_signup.css' %}">
-
+<!-- load fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
 <body>
+    <!-- signup section -->
     <div class="signup">
+        <!-- title -->
         <h1>Create Your Blogging Account</h1>
         <p>Read Unlimited Blogs By Creating An Account </p>
-    
+        <!-- form -->
         <form method="POST">
             {% csrf_token %}
-    
+            <!-- messages if field criterias are fulfilled -->
             {% for message in messages %}
-            <h5>{{message}}</h5>
-        {% endfor %}
+                <h5>{{message}}</h5>
+            {% endfor %}
+            <!-- username field -->
             <div class="txt_field">
                 <input type="text" name="username" id="" required>
                 <span></span>
                 <label> Username:</label>
             </div>
-
+            <!-- email field -->
             <div class="txt_field">
                 <input type="email" name="email" id="" required>
                 <span></span>
                 <label> Email:</label>
             </div>
-
+            <!-- password field -->
             <div class="txt_field">
                 <input type="password" name="password" id="" required>
                 <span></span>
                 <label> Password:</label>
             </div>
-
+            <!-- confirm password field -->
             <div class="txt_field">
                 <input type="password" name="re_password" id="" required>
                 <span></span>
                 <label> Confirm Password:</label>
             </div>
+            <!-- submit button to create account -->
             <div class="button">
                 <input type="submit" value="Submit">
             </div>
+
+            <!-- if u already have an account; rediredt to login page button -->
             <div class="login">
                 <label> Already have an account ?<a href="{% url 'login' %}">Login</a></label>
             </div>

@@ -5,41 +5,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link to css -->
     <link rel="stylesheet" href="{% static 'style_write_blog.css' %}">
 </head>
 <body>
     <main>
+        <!-- write blogs section -->
         <div class="write_blog">
+            <!-- messages: if any field do not meet the criteria  -->
             {% for message in messages %}
                 {{message}}
             {% endfor %}
+            <!-- form -->
             <form action="" method="POST">
                 {% csrf_token %}
+                <!-- blog title field -->
                 <div class="fields">
                     <label> Title</label>
                     <input type="text" name="title">
                 </div>
+                <!-- blog mini-title field -->
                 <div class="fields">
                     <label> Mini-Title</label>
                     <input type="text" name="mini_title">
                 </div>
-                    
+                <!-- blog catagory field -->
                 <div class="fields">
                     <label> Catagory</label>
                     <select name="catagory" class="catagory" id="catagory">
+                        {% for catagory in all_catagory %}
+                            {% if catagory.catagory_name != 'All' %}
+                            <option value="{{catagory.catagory_name}}">{{catagory.catagory_name}}</option>
+                            {% endif %}
+                        {% endfor %}
                     </select>
-
                 </div>
+                <!-- blog description field -->
                 <div class="description">
                     Description <br>
                     <textarea name="Description" id="" cols="30" rows="13"></textarea>
                 </div>
+                <!-- submit blog button -->
                 <div class="submit">
-                <input type="submit" value="submit">
+                    <input type="submit" value="submit">
                 </div>
             </form>
         </div>
     </main>
 </body>
-<script src="{% static 'app_write_blog.js' %}"></script>
 </html>

@@ -1,36 +1,43 @@
 {% load static%}
+<!-- link css -->
 <link rel="stylesheet" href="{% static 'style_login.css' %}">
 
+<!-- load fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 
 <body>
+    <!-- login section -->
     <div class="login">
+        <!-- login title -->
         <h1>Login</h1>
         <p>Enter the World Full of Blogs </p>
-
+        <!-- form -->
         <form method="POST" action="">
             {% csrf_token %}
+            <!-- display error messages if any -->
             {% for message in messages %}
                 <h5>{{message}}</h5>
             {% endfor %}
+            <!-- username field -->
             <div class="txt_field">
                 <input type="text" name="username" id="" required>
                 <span></span>
                 <label> Username:</label>
             </div>
-
+            <!-- password field -->
             <div class="txt_field">
                 <input type="password" name="password" id="" required>
                 <span></span>
                 <label> Password:</label>
             </div>
-
+            <!-- submit button -->
             <div class="button">
                 <input type="submit" value="Submit" required>
             </div>
 
+            <!-- if u do not have account; create one button -->
             <div class="signup">
                 <label> Do not have an Account ?<a href="{% url 'signup' %}">Signup</a></label>
             </div>
