@@ -21,7 +21,11 @@
         <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
         <h1>{{ user }}</h1>
     </div>
-    <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+    <div class="menu_btns">    
+        <a href="/Edit_Profile/{{user}}"><button class="Edit_Profile">Edit Profile</button></a>
+
+        <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+    </div>
     </div>
     <div class="navigation">
         <ul>

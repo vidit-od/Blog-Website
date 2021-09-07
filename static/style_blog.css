@@ -274,26 +274,44 @@ body{
   width: 95%;
   margin-top: 40px;
 }
-.logout_menu{
+.Edit_Profile{
   background-color:rgb(24, 45, 59);
   width: max-content;
+  border: none;
   width: 155px;
-  margin-top: 35px;
   height: 35px;
-  padding:7px ;
+  padding:5px ;
   text-align: center;
   border-radius: 10px;
   font-weight: 700;
   font-size: 1rem;
   transition: 0.5s;
 }
-.logout_menu:hover{
+.Edit_Profile:hover{
+  background-color: #39b54a;
+}
+.logout{
+  background-color:rgb(24, 45, 59);
+  width: max-content;
+  width: 155px;
+  height: 35px;
+  padding:5px ;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: 0.5s;
+  border: none;
+}
+.logout:hover{
   background-color: red;
 }
 .user{
   display: flex;
   position: relative;
-  width: 300px;
+  width: 500px;
+  margin-right: 20px;
   padding: 10px;
   padding-left: 20px;
   border-radius: 20px;
@@ -320,6 +338,10 @@ body{
 .navigation ul{
   list-style: none;
 }
+.navigation ul li a{
+  text-decoration: none;
+  color: #39b54a;
+}
 .navigation ul li::after{
   content: ">>";
   position: absolute;
@@ -333,14 +355,10 @@ body{
   transform: translateX(20px);
   pointer-events: visible;
 }
-.navigation ul li a{
-  text-decoration: none;
-  color: #39b54a;
-}
 .toggle{
   transform: translateX(-100%);
 }
-
+/* pages */
 .pages{
   display: flex;
   width: fit-content;
@@ -361,6 +379,7 @@ body{
   margin: 5px;
 }
 
+/* second menu btn */
 .menu-btn_second{
   position: fixed;
   right: 15px;

@@ -152,3 +152,6 @@ def like(request,pk):
         Post.like.add(request.user.id)
         like_status=True
     return HttpResponseRedirect(reverse('read_blog',args=[str(pk)]))
+
+def profile(request,pk):
+    return render(request, 'Edit_Profile.html')

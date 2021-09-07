@@ -22,7 +22,11 @@
         <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
         <h1>{{ user }}</h1>
     </div>
-    <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+    <div class="menu_btns">    
+        <a href="/Edit_Profile/{{user}}"><button class="Edit_Profile">Edit Profile</button></a>
+
+        <a href="{% url 'logout' %}"><button class="logout">Logout</button></a>
+    </div>
     </div>
     <div class="navigation">
         <ul>
@@ -32,7 +36,7 @@
             <li><a href="/#contact">Contact Us</a></li>
         </ul>
     </div>
-</div>
+    </div>
 <div class="menu-btn_second">
     <button id="menu-btn_second">Menu</button>
 </div>

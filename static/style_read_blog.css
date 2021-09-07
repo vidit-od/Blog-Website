@@ -91,18 +91,35 @@ body{
     width: 95%;
     margin-top: 40px;
   }
-  .logout{
+  .Edit_Profile{
     background-color:rgb(24, 45, 59);
     width: max-content;
+    border: none;
     width: 155px;
-    margin-top: 35px;
     height: 35px;
-    padding:7px ;
+    padding:5px ;
     text-align: center;
     border-radius: 10px;
     font-weight: 700;
     font-size: 1rem;
     transition: 0.5s;
+  }
+  .Edit_Profile:hover{
+    background-color: #39b54a;
+  }
+  .logout{
+    background-color:rgb(24, 45, 59);
+    width: max-content;
+    width: 155px;
+    height: 35px;
+    padding:5px ;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: 0.5s;
+    border: none;
   }
   .logout:hover{
     background-color: red;
@@ -110,7 +127,8 @@ body{
   .user{
     display: flex;
     position: relative;
-    width: 300px;
+    width: 500px;
+    margin-right: 20px;
     padding: 10px;
     padding-left: 20px;
     border-radius: 20px;
@@ -136,6 +154,10 @@ body{
   }
   .navigation ul{
     list-style: none;
+  }
+  .navigation ul li a{
+    text-decoration: none;
+    color: #39b54a;
   }
   .navigation ul li::after{
     content: ">>";
@@ -265,3 +287,11 @@ body{
     text-decoration: none;
     color: #39b54a;
 }
+
+/* media */
+
+@media screen and (min-width:500px){
+    .menu{
+      max-width:500px
+    }
+  }
