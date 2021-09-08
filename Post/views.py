@@ -4,7 +4,7 @@ from django.contrib.auth.models import auth,User
 from django.contrib import messages
 from datetime import datetime
 from django.urls import reverse
-from .models import post,comment,catagory as catagory_model
+from .models import post,comment,catagory as catagory_model,users
 # Create your views here.
 # for index.html
 def index(request):
@@ -55,6 +55,8 @@ def signup(request):
         else:
             user=User.objects.create_user(username=username,email=email,password=password)
             user.save()
+            user2=users.objects.create(user_id=user)
+            user2.save()
             messages.info(request, 'saved')
             return redirect('login')
 
@@ -191,4 +193,6 @@ def like(request,pk):
 
 # for Edit_Profile.html
 def profile(request,pk):
-    return render(request, 'Edit_Profile.html')
+    user_id=User.objects.get(username=pk).pk
+    user=users.objects.get(user_id=user_id)
+    return render(request, 'Edit_Profile.html',{'user':user})

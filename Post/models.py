@@ -10,12 +10,12 @@ class users(models.Model):
     }
     
     
-    first_name=models.CharField(max_length=100,blank=True)
-    last_name=models.CharField(max_length=100,blank=True)
+    first_name=models.CharField(max_length=100,blank=True,null=True,default=None)
+    last_name=models.CharField(max_length=100,blank=True,null=True,default=None)
     user_id=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    gender=models.CharField(max_length=20,blank=True,choices=GENDER_choice)
-    age=models.IntegerField()
-    profile_pic=models.ImageField(default="images\profile_pic\default-avatar.jpg", upload_to="images/profile_pic/")
+    gender=models.CharField(max_length=20,blank=True,choices=GENDER_choice,null=True,default=None)
+    age=models.IntegerField(null=True,default=None)
+    profile_pic=models.ImageField(default="static\images\profile_pic\default-avatar.jpg", upload_to="images/profile_pic/")
 
     
     def __str__(self):
@@ -23,7 +23,7 @@ class users(models.Model):
 
 class catagory(models.Model):
     catagory_name=models.CharField(max_length=100)
-    image=models.ImageField(blank=True,null=True,upload_to="images/catagory/")
+    image=models.ImageField(blank=True,null=True,upload_to="static/images/catagory/")
 
     def __str__(self):
         return '%s' %(self.catagory_name)

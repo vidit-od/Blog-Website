@@ -13,7 +13,9 @@
 <!-- top fixed navigation bar -->
 <div class="navigation_second">
     <p>hello</p>
-    <button id="menu-btn">Menu</button>
+    {% if user.is_authenticated %}
+        <button id="menu-btn">Menu</button>
+    {% endif %}
 </div>
 
 <!-- buttons to navigate smoothly between pages  -->
