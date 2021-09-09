@@ -6,19 +6,24 @@
 body{
     background-color: #f1f1f1;
 }
+.content{
+    position: relative;
+    width: 95%;
+    height: 97%;
+    background-color: white;
+    margin: 0% auto;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 20px;
+}
 .main_info{
     display: flex;
-    background-color: white;
-    width: 95%;
-    margin: 0 auto;
-    padding: 10px;
-    height: 95%;
     border-radius: 10px;
     margin-top: 10px;
 }
-
 .profile_pic{
     width: 200px;
+    margin-left: 30px;
 }
 .profile_pic img{
     border-radius: 50%;
@@ -30,6 +35,100 @@ body{
     width: 180px;
     margin-top: 10px;
 }
-.field{
-    display: flex;
+.name_info{
+    transform: translateY(-10px);
+}
+.txt_field{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 20px 0;
+  }
+  /* field input */
+  .txt_field input{
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+  }
+  /* field title */
+  .txt_field label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+  }
+  .txt_field span::before{
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #2691d9;
+      transition: .5s;
+  }
+  /* effects */
+  .txt_field input:focus ~ label,
+  .txt_field input:valid ~ label{
+      top: -5px;
+      color: #2691d9;
+  }
+  .txt_field input:focus ~ span::before,
+  .txt_field input:valid ~ span::before{
+      width: 100%;
+  }
+
+  input::placeholder{
+      opacity: 0;
+      transition: opacity 0.5s;
+  }
+  input:focus::placeholder{
+      opacity: 1;
+  }
+
+.other_info .txt_field{
+    width: 87%;
+    margin-left: 10px;
+}
+.gender_field{
+    margin-left: 10px;
+    font-size: 1.2rem;
+    color: gray;
+}
+.gender_field select{
+    margin-left: 10px;
+    width: 73%;
+    border: none;
+    font-size: 1.2rem;
+    text-align: center;
+}
+form input{
+    position: absolute;
+    border: none;
+    margin-top: 10px;
+    text-align: center;
+    width: 83%;
+    bottom: 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    transition: 0.5s;
+}
+form input:hover{
+    background-color: #39b54a;
+    color: black;
+}
+@media screen and (min-width:560px){
+    .content{
+        max-width: 530px;
+    }
 }
