@@ -5,6 +5,8 @@ from django.contrib import messages
 from datetime import datetime
 from django.urls import reverse
 from .models import post,comment,catagory as catagory_model,users
+import os
+from django.conf import settings
 # Create your views here.
 # for index.html
 def index(request):
@@ -206,12 +208,15 @@ def profile(request,pk):
         gender=request.POST['gender']
 
         if profile_pic!=False:
+            ext="."+str(user.profile_pic).split('.')[-1]
+            name = 'profile_pic//'+str(user_id)+ext
+            os.remove(os.path.join(settings.MEDIA_ROOT,name))
             user.profile_pic=profile_pic
         user.first_name=first_name
         user.last_name=last_name
         user.age=age
         user.gender=gender
         user.save()
-
+        
         return redirect(f'/Edit_Profile/{pk}')
     return render(request, 'Edit_Profile.html',{'user':user})

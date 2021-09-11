@@ -1,5 +1,15 @@
 from django.db import models
 from django.conf import settings
+import random
+
+def rename(instance,filename):
+    pre='profile_pic/'
+    ext=filename.split('.')[-1]
+    if instance.pk:
+        return '{}{}.{}'.format(pre,instance.pk,ext)
+    else:
+        return '{}{}.{}'.format(pre,random.randint(),ext)
+
 
 # Create your models here.
 class users(models.Model):
@@ -15,7 +25,7 @@ class users(models.Model):
     user_id=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     gender=models.CharField(max_length=20,blank=True,choices=GENDER_choice,null=True,default=None)
     age=models.IntegerField(null=True,default=None)
-    profile_pic=models.ImageField(default="profile_pic\default-avatar.jpg", upload_to="profile_pic/")
+    profile_pic=models.ImageField(default="profile_pic\default-avatar.jpg", upload_to=rename)
 
     
     def __str__(self):
@@ -51,3 +61,4 @@ class comment(models.Model):
 
     def __str__(self):
         return '%s - %s| %s' %(self.content, self.user, self.post.title) 
+
