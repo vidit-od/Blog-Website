@@ -8,7 +8,8 @@ from .models import post,comment,catagory as catagory_model,users
 # Create your views here.
 # for index.html
 def index(request):
-    return render(request, 'index.html')
+    user=users.objects.get(user_id=request.user.id)
+    return render(request, 'index.html',{'user_pic':user})
 
 # for login.html
 def login(request):
@@ -71,6 +72,7 @@ def logout(request):
 def blogs(request):
     posts=post.objects.all().order_by('id').reverse()
     all_catagory=catagory_model.objects.all()
+    user=users.objects.get(user_id=request.user.id)
     # for filteration of data
     if request.method=='POST':
         catagory=request.POST['catagory_select']
@@ -81,34 +83,34 @@ def blogs(request):
             # user request only catagory sort
             if catagory!="All" and author=="":
                 posts=post.objects.filter(catagory=catagory).order_by('id').reverse()
-                return render(request, 'blogs.html',{'posts':posts ,'all_catagory':all_catagory,'selected_catagory':catagory})
+                return render(request, 'blogs.html',{'posts':posts ,'all_catagory':all_catagory,'selected_catagory':catagory,'user_pic':user})
 
             # user request only author sort
             elif catagory=="All" and author!="":
                 posts=post.objects.filter(author=author).order_by('id').reverse()
-                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_author':author})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_author':author,'user_pic':user})
 
             # user requests both sort
             elif catagory!="All" and author!="":
                 posts=post.objects.filter(catagory=catagory , author=author).order_by('id').reverse()
-                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_author':author})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_author':author,'user_pic':user})
         # if user wants oldest at top;
         else:
             # user request only catagory sort
             if catagory!="All" and author=="":
                 posts=post.objects.filter(catagory=catagory).order_by('id')
-                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_sort':sort})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_sort':sort,'user_pic':user})
 
             # user request only author sort
             elif catagory=="All" and author!="":
                 posts=post.objects.filter(author=author).order_by('id')
-                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_author':author,'selected_sort':sort})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_author':author,'selected_sort':sort,'user_pic':user})
 
             # user requests both sort
             elif catagory!="All" and author!="":
                 posts=post.objects.filter(catagory=catagory , author=author).order_by('id')
-                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_author':author,'selected_sort':sort})
-    return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory})
+                return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'selected_catagory':catagory,'selected_author':author,'selected_sort':sort,'user_pic':user})
+    return render(request, 'blogs.html',{'posts':posts,'all_catagory':all_catagory,'user_pic':user})
 
 # for write_blog.html
 def write_blog(request):
@@ -149,7 +151,7 @@ def read_blog(request,pk):
     all_blog=post.objects.all()
     catagory_blog=[]
     like_status=False
-
+    user=users.objects.get(user_id=request.user.id)
     # for suggestions section; filter out blogs that have similar catagory to current blog
     for i in all_blog:
         if i.catagory==blog.catagory:
@@ -174,7 +176,7 @@ def read_blog(request,pk):
     else:
         like_status=False
  
-    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog ,'total_like':total_like,'like_status':like_status})
+    return render(request,'read_blog.html',{'blog':blog, 'all_blogs':catagory_blog ,'total_like':total_like,'like_status':like_status,'user_pic':user})
 
 # for adding likes functionality
 def like(request,pk):

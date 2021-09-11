@@ -32,7 +32,7 @@
     <button id="close">X</button>
     <div class="heading">
     <div class="user">
-        <img src="{% static 'images/default-avatar.jpg' %}" alt="" srcset="">
+        <img src="{{ user_pic.profile_pic.url }}" alt="" srcset="">
         <h1>{{ user }}</h1>
     </div>
     <div class="menu_btns">    
