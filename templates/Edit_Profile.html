@@ -1,53 +1,75 @@
 {% load static %}
 <head>
     <link rel="stylesheet" href="{%static 'style_edit_profile.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=WindSong:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="content">
-    <div class="main_info">
+    <div class="heading">
+        Edit Profile
+    </div>
+    {% for message in messages %}
+        {{message}}
+    {% endfor %}
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="content">
+            <div class="main_info">
         <div class="profile_pic">
-            <img src="{%static user.profile_pic.url %}"/>
+            <img src="{{ user.profile_pic.url }}"/>
             <br>
-            <input type="file" name="" id="" value="1">
+            <input type="file" name="profile_pic" accept="image/*" id="profile_pic">
         </div>
         <br>
         <div class="name_info">
-            <div class="txt_field">
-                <input type="text" name="user_id" id="" placeholder="{{user.user_id}}" required>
+            <div class="txt_field username">
+                <input type="text" name="user_id" id="user_id" value="{{user.user_id}}"  required>
                 <span></span>
                 <label for="user_id">Username</label>
             </div>
             <div class="txt_field">
-                <input type="text" name="" id="" placeholder="{{user.first_name}}" required>    
+                <input type="text" name="first_name" id="" value="{{user.first_name}}">    
                 <span></span>
                 <label for="first_name">First Name:</label>
             </div>
             <div class="txt_field">
-                <input type="text" name="" id="" placeholder="{{user.last_name}}" required>    
+                <input type="text" name="last_name" id="" value="{{user.last_name}}" >    
                 <span></span>
                 <label for="last_name">Last Name:</label>
             </div>
             
         </div>
-    </div>
-    <div class="other_info">
+        </div>
+        <div class="other_info">
         <div class="txt_field">
-            <input type=number name="age" id="" placeholder="{{user.age}}" required>
+            <input type=number name="age" id="" value="{{user.age}}">
             <span></span>
             <label for="age">Age</label>
         </div>
         <div class="gender_field">
             <label for="">Gender:</label>
             <select name="gender" id="" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Others">Others</option>
+                {% if user.gender == 'Male' %}
+                    <option value="Male" selected>male</option>
+                {% else %}
+                    <option value="Male">Male</option>
+                {% endif %}
+                {% if user.gender == 'Female' %}
+                    <option value="Female" selected>Female</option>
+                {% else %}
+                    <option value="Female">Female</option>
+                {% endif %}
+                {% if user.gender == 'Others' %}
+                    <option value="Others" selected>Others</option>
+                {% else %}
+                    <option value="Others">Others</option>
+                {% endif %}
             </select>
         </div>
-    </div>
-    <form action="" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="submit">
+        </div>
+            <input type="submit" value="submit">
+        </div>
     </form>
-    </div>
 </body>

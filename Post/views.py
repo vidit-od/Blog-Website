@@ -195,4 +195,21 @@ def like(request,pk):
 def profile(request,pk):
     user_id=User.objects.get(username=pk).pk
     user=users.objects.get(user_id=user_id)
+    
+    if request.method=='POST':
+        profile_pic=request.FILES.get('profile_pic', False)
+        first_name=request.POST['first_name']
+        last_name=request.POST['last_name']
+        age=request.POST['age']
+        gender=request.POST['gender']
+
+        if profile_pic!=False:
+            user.profile_pic=profile_pic
+        user.first_name=first_name
+        user.last_name=last_name
+        user.age=age
+        user.gender=gender
+        user.save()
+
+        return redirect(f'/Edit_Profile/{pk}')
     return render(request, 'Edit_Profile.html',{'user':user})
