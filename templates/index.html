@@ -92,30 +92,15 @@
     <!-- cards: collection of all blogs -->
     <div class="cards">
         <!-- blog: a partivular blog -->
+        {% for post in all_posts %}
         <div class="blog">
-            <div class="title"><h2>Blog 1</h2> </div>
-            <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
+            <div class="title">
+                <h2>Title: {{post.title}}</h2> 
+                <h3>By: {{post.author}}</h3>
+            </div>
+            <div class="info">{{post.description|truncatewords:7}}</div>
         </div>
-        <div class="blog">
-            <div class="title"><h2>Blog 1</h2> </div>
-            <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
-        </div>
-        <div class="blog">
-            <div class="title"><h2>Blog 1</h2> </div>
-            <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
-        </div>
-        <div class="blog">
-            <div class="title"><h2>Blog 1</h2> </div>
-            <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
-        </div>
-        <div class="blog">
-            <div class="title"><h2>Blog 1</h2> </div>
-            <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
-        </div>
-        <div class="blog">
-            <div class="title"><h2>Blog 1</h2> </div>
-            <div class="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio obcaecati, tempora atque asperiores facere laboriosam?</div>
-        </div>
+        {% endfor %}
     </div>
 
     <!-- read more button to redirect to blogs.html -->
