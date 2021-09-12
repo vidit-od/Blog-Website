@@ -78,6 +78,7 @@ def blogs(request):
     # for filteration of data
     if request.method=='POST':
         catagory=request.POST['catagory_select']
+        catagory=catagory_model.objects.filter(catagory_name=catagory).first()
         sort=request.POST['sort']
         author=request.POST['author']
         # if user wants latest at top; .reverse() will come here

@@ -10,7 +10,9 @@
 
 <!-- link to css -->
 <link rel="stylesheet" href="{%static 'style_blog.css' %}">
-
+{% for message in messages %}
+{{message}}
+{% endfor %}
 
 <body>
 <!-- side menu bar -->
@@ -107,7 +109,7 @@
     <div class="blog">
         <!-- image according to catagory -->
         <div class="meta">
-            <img class="image" src="{%static 'images/hero-bg.jpg.webp' %}" alt="" srcset="">
+            <img class="image" src="{{ post.catagory.image.url }}" alt="" srcset="">
             <ul>
                 <li>{{post.author}}</li>
                 <li>{{post.date}}</li>
